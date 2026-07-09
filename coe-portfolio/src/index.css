@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* ── Background & surface ── */
+  --color-cyber-bg:     #ffffff;
+  --color-cyber-navy:   #f0f4ff;
+  --color-cyber-darker: #e8ecf8;
+
+  /* ── Brand accent ── */
+  --color-cyber-cyan:   #0066cc;   /* deep blue */
+  --color-cyber-blue:   #3b82f6;
+  --color-cyber-purple: #f97316;   /* orange complement — used as "purple" slot */
+
+  /* ── Text ── */
+  --color-cyber-light:  #1a1a2e;
+
+  /* ── Typography — everything monospace ── */
+  --font-space: "Space Mono", "Courier New", monospace;
+  --font-sans:  "Space Mono", "Courier New", monospace;
+
+  /* ── Shadows ── */
+  --shadow-neon:        7px 7px 0 #0066cc;
+  --shadow-neon-strong: 9px 9px 0 #f97316;
+  --shadow-neon-purple: 7px 7px 0 #f97316;
+  --shadow-glass:       7px 7px 0 #0066cc;
+
+  /* ── Gradients ── */
+  --background-image-cyber-gradient: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+  --background-image-glow-gradient:  radial-gradient(circle at center, rgba(0,102,204,0.10) 0%, transparent 70%);
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ── Base ────────────────────────────────────────── */
+body {
+  @apply bg-white overflow-x-hidden;
+  color: #1a1a2e;
+  font-family: "Space Mono", "Courier New", monospace;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(0,102,204,0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(249,115,22,0.04) 0%, transparent 40%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Space Mono", "Courier New", monospace;
+  @apply font-bold tracking-tight;
+  color: #0a0a1a;
+}
+
+/* ── Glass panel → BLACK BOX ─────────────────────── */
+@utility glass-panel {
+  background: #0d0d0d;
+  border: 1px solid #1e1e1e;
+  box-shadow: 7px 7px 0 #0066cc;
+}
+
+/* Text inside dark glass panels — force readable colours */
+.glass-panel h1, .glass-panel h2,
+.glass-panel h3, .glass-panel h4,
+.glass-panel h5, .glass-panel h6 {
+  color: #f1f1f1 !important;
+}
+.glass-panel p,
+.glass-panel li {
+  color: #9ca3af !important;
+}
+
+/* ── Glass panel hover ───────────────────────────── */
+@utility glass-panel-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  &:hover {
+    box-shadow: 9px 9px 0 #f97316;
+    transform: translate(-2px, -2px);
+    border-color: #2a2a2a;
+  }
+}
+
+/* ── Noise overlay ────────────────────────────────── */
+@utility cyber-noise {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  content: "";
+  opacity: 0.015;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ── Grid helpers ────────────────────────────────── */
+@utility cyber-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(0,102,204,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,102,204,0.06) 1px, transparent 1px);
+}
+
+@utility hex-grid {
+  background-image: radial-gradient(rgba(0,102,204,0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ── Glow utilities ───────────────────────────────── */
+@utility text-glow {
+  text-shadow: 0 0 10px rgba(0, 102, 204, 0.55);
+}
+
+@utility text-glow-purple {
+  text-shadow: 0 0 10px rgba(249, 115, 22, 0.55);
+}
+
+@utility border-glow {
+  box-shadow: 7px 7px 0 rgba(0, 102, 204, 0.8);
+}
+
+/* ── Timeline accent ──────────────────────────────── */
+@utility timeline-line {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,102,204,0)   0%,
+    rgba(0,102,204,1)  15%,
+    rgba(249,115,22,1) 85%,
+    rgba(249,115,22,0) 100%
+  );
+}
+
+/* ── Custom cursor ────────────────────────────────── */
+@utility custom-cursor {
+  width: 20px; height: 20px;
+  border: 1px solid rgba(0, 102, 204, 0.8);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+@utility custom-cursor-dot {
+  width: 4px; height: 4px;
+  background-color: #0066cc;
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+}
+
+/* ── Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar        { width: 8px; }
+::-webkit-scrollbar-track  { background: #f0f4ff; }
+::-webkit-scrollbar-thumb  {
+  background: rgba(0, 102, 204, 0.25);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.6);
+}
+
+/* ── Section borders ──────────────────────────────── */
+section {
+  border-color: rgba(0, 102, 204, 0.08) !important;
+}
+
+/* ── Marquee ──────────────────────────────────────── */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-scroll-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee-outer {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll var(--duration, 30s) linear infinite;
+}
+
+.marquee-reverse {
+  animation-name: marquee-scroll-reverse;
+}
+
+.marquee-pause-hover:hover {
+  animation-play-state: paused;
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+/* ── Inside glass-panel: force orange on accent spans ── */
+.glass-panel .text-cyber-cyan,
+.glass-panel .text-cyber-purple,
+.glass-panel .text-glow {
+  color: #f97316 !important;
+  text-shadow: none;
+}
+.glass-panel .bg-cyber-cyan\/10,
+.glass-panel .bg-white\/5 {
+  background: rgba(249,115,22,0.08) !important;
+}
+.glass-panel .border-cyber-cyan\/20,
+.glass-panel .border-white\/10 {
+  border-color: #2a2a2a !important;
+}
