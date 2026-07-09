@@ -1,7 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Karmatic Arcade';
+  src: url('./assets/karmatic-arcade.woff2') format('woff2'),
+       url('./assets/karmatic-arcade.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Broken Console';
+  src: url('./assets/broken-console-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cyberform Demo';
+  src: url('./assets/cyberform-demo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Scholar Block';
+  src: url('./assets/scholar-block.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ChunkFive';
+  src: url('./assets/chunkfive-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 @theme {
   /* ── Background & surface ── */
@@ -45,28 +86,48 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Space Mono", "Courier New", monospace;
+  font-family: 'Karmatic Arcade', "Space Mono", "Courier New", monospace !important;
   @apply font-bold tracking-tight;
   color: #0a0a1a;
 }
 
-/* ── Glass panel → BLACK BOX ─────────────────────── */
+/* ── Glass panel ── */
 @utility glass-panel {
-  background: #0d0d0d;
+  background: #1F2937;
   border: 1px solid #1e1e1e;
   box-shadow: 7px 7px 0 #0066cc;
 }
 
-/* Text inside dark glass panels — force readable colours */
+/* Text inside glass panels — force requested color and ChunkFive font */
+.glass-panel,
+.glass-panel *,
 .glass-panel h1, .glass-panel h2,
 .glass-panel h3, .glass-panel h4,
-.glass-panel h5, .glass-panel h6 {
-  color: #f1f1f1 !important;
-}
+.glass-panel h5, .glass-panel h6,
 .glass-panel p,
-.glass-panel li {
-  color: #9ca3af !important;
+.glass-panel li,
+.glass-panel span,
+.glass-panel a,
+.glass-panel div,
+.glass-panel small {
+  color: #10B981 !important;
+  font-family: 'ChunkFive', "Space Mono", "Courier New", monospace !important;
 }
+
+/* Scale down text elements inside glass panels to 0.9 times the original size */
+.glass-panel h1, .glass-panel h2,
+.glass-panel h3, .glass-panel h4,
+.glass-panel h5, .glass-panel h6,
+.glass-panel p,
+.glass-panel li,
+.glass-panel a,
+.glass-panel small {
+  font-size: 0.9em !important;
+}
+
+
+
+
 
 /* ── Glass panel hover ───────────────────────────── */
 @utility glass-panel-hover {
@@ -202,18 +263,27 @@ section {
   padding-right: 1rem;
 }
 
-/* ── Inside glass-panel: force orange on accent spans ── */
+/* ── Inside glass-panel: force 10B981 on accent spans ── */
 .glass-panel .text-cyber-cyan,
 .glass-panel .text-cyber-purple,
 .glass-panel .text-glow {
-  color: #f97316 !important;
+  color: #10B981 !important;
   text-shadow: none;
 }
 .glass-panel .bg-cyber-cyan\/10,
 .glass-panel .bg-white\/5 {
-  background: rgba(249,115,22,0.08) !important;
+  background: rgba(16,185,129,0.08) !important;
 }
 .glass-panel .border-cyber-cyan\/20,
 .glass-panel .border-white\/10 {
-  border-color: #2a2a2a !important;
+  border-color: rgba(16,185,129,0.2) !important;
 }
+
+/* ── Navbar Typography Override ── */
+nav,
+nav * {
+  font-family: 'Cyberform Demo', sans-serif !important;
+}
+
+
+

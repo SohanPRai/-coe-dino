@@ -215,29 +215,30 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left Column - Content */}
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full text-cyber-cyan text-xs font-mono font-medium tracking-wider mb-6 w-fit animate-pulse-slow shadow-neon">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full text-cyber-cyan text-xs font-mono font-medium tracking-wider mb-6 w-fit animate-pulse-slow shadow-neon ml-30">
             <Cpu className="w-3.5 h-3.5" />
             <span>SECURE. DETECT. DEFEND.</span>
           </div>
 
           <h1
             ref={titleRef}
-            className="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-cyber-light mb-6 uppercase leading-[1.1] perspective-[1000px]"
+            className="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-cyber-light mb-6 -ml-35 uppercase leading-[1.1] perspective-[1000px]"
           >
-            <div className="title-line overflow-hidden origin-bottom">Building the Future</div>
-            <div className="title-line overflow-hidden origin-bottom">
-              of <span className="text-cyber-cyan text-glow">Cyber Security</span>
+            <div className="title-line overflow-hidden origin-bottom mb-2 -ml-8">Building the Future</div>
+            <div className="title-line overflow-hidden origin-bottom mb-2">
+              of <span className="text-cyber-cyan text-glow mb-2">Cyber Security</span>
             </div>
-            <div className="title-line overflow-hidden origin-bottom">&amp; Digital Forensics</div>
+            <div className="title-line overflow-hidden origin-bottom -ml-30 mb-2">&amp;and Digital Forensics</div>
           </h1>
-
-          <p id="home-scramble-original" className="sr-only">
-            Empowering students, researchers, and industry professionals through state-of-the-art innovation, applied research, cyber defense protocols, ethical hacking, and advanced digital investigations.
-          </p>
+          <div className="-ml-20" >
+            <p id="home-scramble-original" className="sr-only">
+              Empowering students, researchers, and industry professionals through state-of-the-art innovation, applied research, cyber defense protocols, ethical hacking, and advanced digital investigations.
+            </p>
+          </div>
           <p
             ref={subtitleRef}
             onClick={() => scrambleTimelineRef.current && scrambleTimelineRef.current.play(0)}
-            className="text-gray-600 text-sm sm:text-base xl:text-lg mb-8 max-w-xl font-light leading-relaxed cursor-pointer select-none min-h-[7em] sm:min-h-[5.5em] md:min-h-[4.5em]"
+            className="text-gray-600 text-sm sm:text-base xl:text-lg mb-8 max-w-xl font-light leading-relaxed cursor-pointer select-none min-h-[7em] sm:min-h-[5.5em] md:min-h-[4.5em] -ml-20"
             title="Click to replay scramble effect"
           >
             <span id="home-scramble-1"></span>
