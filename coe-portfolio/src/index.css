@@ -432,3 +432,9 @@ section {
 .glass-panel .border-white\/10 {
   border-color: #2563EB !important;
 }
+
+/* ── Hero Title Font Override ── */
+#home h1,
+#home h1 * {
+  font-family: 'Karmatic Arcade', sans-serif !important;
+}
