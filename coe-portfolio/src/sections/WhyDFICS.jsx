@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const StatCard = ({ val, suffix, label, desc, icon: IconComponent }) => {
+const StatCard = ({ val, suffix, label, desc, icon: IconComponent, idx }) => {
   const numRef = useRef(null);
   const cardRef = useRef(null);
 
@@ -36,8 +36,13 @@ const StatCard = ({ val, suffix, label, desc, icon: IconComponent }) => {
   return (
     <div
       ref={cardRef}
-      className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-cyber-cyan/30 hover:shadow-neon transition-all duration-300 relative group overflow-hidden"
+      className="dino-panel-light dino-panel-light-hover p-6 sm:p-8 rounded-none relative group overflow-hidden"
     >
+      {/* Faded Background Index */}
+      <div className="absolute right-6 top-2 text-8xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
+        {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+      </div>
+
       <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 group-hover:scale-110 transition-all duration-300 text-cyber-cyan">
         <IconComponent className="w-16 h-16" />
       </div>
@@ -45,7 +50,7 @@ const StatCard = ({ val, suffix, label, desc, icon: IconComponent }) => {
       <div className="flex items-center space-x-2 mb-3">
         <span
           ref={numRef}
-          className="text-4xl sm:text-5xl font-extrabold font-space text-white text-glow"
+          className="text-4xl sm:text-5xl font-extrabold font-space text-gray-900"
         >
           0
         </span>
@@ -54,10 +59,10 @@ const StatCard = ({ val, suffix, label, desc, icon: IconComponent }) => {
         </span>
       </div>
 
-      <h4 className="text-sm font-space font-bold uppercase tracking-wider text-gray-200 mb-1">
+      <h4 className="text-sm font-space font-bold uppercase tracking-wider text-gray-800 mb-1">
         {label}
       </h4>
-      <p className="text-gray-400 text-xs font-light leading-relaxed">
+      <p className="text-gray-600 text-xs font-light leading-relaxed">
         {desc}
       </p>
     </div>
@@ -137,14 +142,14 @@ const WhyDFICS = () => {
           
           {/* Left: Section Introduction */}
           <div className="lg:col-span-4 why-header">
-            <div className="inline-block px-3 py-1 bg-cyber-purple/10 border border-cyber-purple/30 rounded-full text-cyber-purple text-xs font-mono font-medium tracking-wider mb-4 shadow-neon-purple">
+            <div className="inline-block px-3 py-1 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full text-cyber-cyan text-xs font-mono font-medium tracking-wider mb-4 shadow-neon">
               WHY CHOOSE US
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-wider mb-6">
               Empowering the Next Gen of <span className="text-cyber-cyan text-glow">Cyber Defenders</span>
             </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-purple mb-6" />
-            <p className="text-gray-400 text-sm font-light leading-relaxed">
+            <div className="w-16 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-blue mb-6" />
+            <p className="text-gray-600 text-sm font-light leading-relaxed">
               At DFICS, we don't just teach security protocols; we build actual solutions. Scholars access sandboxed cyber ranges, analyze actual forensic drives, and simulate tactical attack operations to master digital investigations.
             </p>
           </div>
@@ -162,6 +167,7 @@ const WhyDFICS = () => {
                   label={stat.label}
                   desc={stat.desc}
                   icon={stat.icon}
+                  idx={idx}
                 />
               </div>
             ))}

@@ -254,7 +254,7 @@ const Hero = () => {
               <a
                 href="#about"
                 onClick={(e) => scrollToSection(e, '#about')}
-                className="interactive px-7 py-3.5 bg-cyber-cyan text-cyber-bg font-space font-semibold rounded-full border border-cyber-cyan hover:bg-transparent hover:text-cyber-cyan hover:shadow-neon transition-all duration-300 inline-flex items-center space-x-2 text-sm shadow-neon"
+                className="interactive px-7 py-3.5 dino-btn-primary dino-btn-primary-hover transition-all duration-300 inline-flex items-center space-x-2 text-sm"
               >
                 <span>Explore Centre</span>
                 <ArrowRight className="w-4 h-4" />
@@ -265,7 +265,7 @@ const Hero = () => {
               <a
                 href="#domains"
                 onClick={(e) => scrollToSection(e, '#domains')}
-                className="interactive px-7 py-3.5 bg-white/5 backdrop-blur-md text-white font-space font-semibold rounded-full border border-white/10 hover:border-cyber-cyan/50 hover:bg-white/10 transition-all duration-300 text-sm inline-flex items-center space-x-2"
+                className="interactive px-7 py-3.5 dino-btn-secondary dino-btn-secondary-hover transition-all duration-300 text-sm inline-flex items-center space-x-2"
               >
                 <span>Research Areas</span>
               </a>

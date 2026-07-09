@@ -121,7 +121,7 @@ const Labs = () => {
           <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-wider mb-4">
             Security &amp; Forensic <span className="text-cyber-cyan text-glow">Laboratories</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-purple mx-auto mb-6" />
+          <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-blue mx-auto mb-6" />
           <p className="max-w-2xl mx-auto text-gray-400 font-light text-sm sm:text-base leading-relaxed">
             Equipped with enterprise security appliances and analytical clusters to solve complex offensive and defensive cyber challenges.
           </p>
@@ -131,14 +131,26 @@ const Labs = () => {
         <div className="labs-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {labs.map((lab, idx) => {
             const IconComponent = lab.icon;
+            const offsets = [
+              'lg:translate-y-0',
+              'lg:translate-y-4',
+              'lg:-translate-y-2',
+              'lg:translate-y-3',
+              'lg:-translate-y-4'
+            ];
             return (
               <div
                 key={idx}
-                className="lab-card glass-panel rounded-2xl border border-white/5 hover:border-cyber-cyan/30 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between"
+                className={`lab-card dino-panel-light dino-panel-light-hover rounded-none relative overflow-hidden group flex flex-col justify-between ${offsets[idx] || ''}`}
               >
+                {/* Faded Background Index */}
+                <div className="absolute right-6 top-2 text-8xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
+                  {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                </div>
+
                 {/* Visual Glow overlay */}
                 <div
-                  className="absolute -top-12 -right-12 w-32 h-32 blur-[40px] rounded-full pointer-events-none transition-all duration-300 opacity-20 group-hover:opacity-45"
+                  className="absolute -top-12 -right-12 w-32 h-32 blur-[40px] rounded-full pointer-events-none transition-all duration-300 opacity-10 group-hover:opacity-20"
                   style={{ backgroundColor: lab.glowColor }}
                 />
 
@@ -151,27 +163,27 @@ const Labs = () => {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-cyan opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-cyber-cyan"></span>
                       </span>
-                      <span className="text-[10px] font-mono text-gray-400 font-medium">SYS_STATUS:</span>
+                      <span className="text-[10px] font-mono text-gray-500 font-medium">SYS_STATUS:</span>
                       <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${lab.color}`}>
                         {lab.status}
                       </span>
                     </div>
-                    <IconComponent className="w-5 h-5 text-gray-400 group-hover:text-cyber-cyan group-hover:rotate-6 transition-all" />
                   </div>
 
                   {/* Lab Title */}
-                  <h3 className="text-lg font-space font-bold uppercase tracking-wider text-white mb-3 group-hover:text-cyber-cyan transition-colors">
-                    {lab.name}
+                  <h3 className="text-base sm:text-lg font-space font-bold uppercase tracking-wider text-gray-900 mb-3 group-hover:text-cyber-cyan transition-colors flex items-center justify-between">
+                    <span>□ {lab.name}</span>
+                    <IconComponent className="w-4 h-4 text-gray-400 group-hover:text-cyber-cyan group-hover:rotate-12 transition-all shrink-0" />
                   </h3>
                   
                   {/* Lab Description */}
-                  <p className="text-gray-400 text-xs sm:text-sm font-light leading-relaxed mb-6">
+                  <p className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed mb-6">
                     {lab.desc}
                   </p>
 
                   {/* Simulated Terminal UI Dashboard */}
-                  <div className="bg-cyber-darker/80 border border-white/5 rounded-xl p-4 font-mono text-[10px] sm:text-xs mb-6 text-gray-300 relative overflow-hidden group-hover:border-cyber-cyan/20 transition-colors">
-                    <div className="flex items-center justify-between text-gray-500 border-b border-white/5 pb-2 mb-2">
+                  <div className="bg-cyber-darker border border-gray-200 rounded-xl p-4 font-mono text-[10px] sm:text-xs mb-6 text-gray-700 relative overflow-hidden group-hover:border-cyber-cyan/20 transition-colors">
+                    <div className="flex items-center justify-between text-gray-500 border-b border-gray-200 pb-2 mb-2">
                       <span>CONSOLE LOGS</span>
                       <Cpu className="w-3 h-3 text-cyber-cyan" />
                     </div>
@@ -184,12 +196,12 @@ const Labs = () => {
 
                   {/* Spec Bullet Details */}
                   <div className="space-y-2">
-                    <h4 className="text-[10px] font-mono text-gray-400 font-bold uppercase tracking-wider">Lab Inventory:</h4>
+                    <h4 className="text-[10px] font-mono text-gray-500 font-bold uppercase tracking-wider">Lab Inventory:</h4>
                     <div className="flex flex-wrap gap-2">
                       {lab.details.map((detail, dIdx) => (
                         <span
                           key={dIdx}
-                          className="text-[9px] font-mono bg-white/5 border border-white/10 px-2 py-1 rounded text-gray-300"
+                          className="text-[9px] font-mono bg-cyber-navy border border-gray-200 px-2 py-1 rounded text-gray-700"
                         >
                           {detail}
                         </span>

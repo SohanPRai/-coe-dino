@@ -176,8 +176,8 @@ const Domains = () => {
           <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-wider mb-4">
             Domains of <span className="text-cyber-cyan text-glow">Excellence</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-purple mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto text-gray-400 font-light text-sm sm:text-base leading-relaxed">
+          <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-blue mx-auto mb-6" />
+          <p className="max-w-2xl mx-auto text-gray-600 font-light text-sm sm:text-base leading-relaxed">
             We focus on advanced training, academic research, and operational consulting across core cybersecurity disciplines.
           </p>
         </div>
@@ -186,28 +186,33 @@ const Domains = () => {
         <div className="domain-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {domains.map((dom, idx) => {
             const IconComponent = dom.icon;
+            const offsets = [
+              'lg:translate-y-0',
+              'lg:translate-y-4',
+              'lg:-translate-y-2',
+              'lg:translate-y-3',
+              'lg:-translate-y-4',
+              'lg:translate-y-2',
+              'lg:-translate-y-1',
+              'lg:translate-y-1',
+              'lg:-translate-y-3'
+            ];
             return (
-              <div key={idx} className="domain-grid-item">
+              <div key={idx} className={`domain-grid-item ${offsets[idx] || ''}`}>
                 <TiltCard className="h-full">
-                  <div className="glass-panel p-8 rounded-2xl border border-white/5 hover:border-cyber-cyan/30 hover:shadow-neon hover:bg-cyber-navy/80 h-full relative overflow-hidden group">
-                    {/* Glowing card base */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyber-cyan/0 to-cyber-purple/0 group-hover:from-cyber-cyan/5 group-hover:to-cyber-purple/5 transition-all duration-300 pointer-events-none" />
+                  <div className="dino-panel-light dino-panel-light-hover p-8 rounded-none h-full relative overflow-hidden group">
+                    
+                    {/* Stepped corner accent top line */}
+                    <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent to-transparent group-hover:from-cyber-cyan group-hover:to-cyber-blue transition-all duration-500" />
 
-                    {/* Gradient colored border element */}
-                    <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent to-transparent group-hover:from-cyber-cyan group-hover:to-cyber-purple transition-all duration-500" />
-
-                    {/* Icon with interactive neon bubble */}
-                    <div className={`p-4 bg-white/5 rounded-2xl border border-white/10 text-white w-fit mb-6 group-hover:text-cyber-cyan group-hover:border-cyber-cyan/50 group-hover:shadow-neon transition-all duration-300`}>
-                      <IconComponent className="w-6 h-6 transform group-hover:rotate-12 transition-transform duration-300" />
-                    </div>
-
-                    {/* Domain Title */}
-                    <h3 className="text-lg font-space font-bold uppercase tracking-wider text-white mb-3 group-hover:text-cyber-cyan transition-colors duration-300">
-                      {dom.title}
+                    {/* Domain Title + Minimalist icon */}
+                    <h3 className="text-base sm:text-lg font-space font-bold uppercase tracking-wider text-gray-900 mb-3 group-hover:text-cyber-cyan transition-colors duration-300 flex items-center justify-between">
+                      <span>□ {dom.title}</span>
+                      <IconComponent className="w-4 h-4 text-gray-400 group-hover:text-cyber-cyan group-hover:rotate-12 transition-all shrink-0" />
                     </h3>
 
                     {/* Domain Description */}
-                    <p className="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">
+                    <p className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed">
                       {dom.desc}
                     </p>
                   </div>

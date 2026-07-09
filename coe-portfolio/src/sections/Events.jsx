@@ -113,14 +113,14 @@ const Events = () => {
         
         {/* Header */}
         <div className="events-header text-center mb-16">
-          <div className="inline-block px-3 py-1 bg-cyber-purple/10 border border-cyber-purple/30 rounded-full text-cyber-purple text-xs font-mono font-medium tracking-wider mb-4 shadow-neon-purple">
+          <div className="inline-block px-3 py-1 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full text-cyber-cyan text-xs font-mono font-medium tracking-wider mb-4 shadow-neon">
             COMMUNITY &amp; DEVELOPMENT
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-wider mb-4">
             Security <span className="text-cyber-cyan text-glow">Events &amp; Chronology</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-purple mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto text-gray-400 font-light text-sm sm:text-base leading-relaxed">
+          <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-blue mx-auto mb-6" />
+          <p className="max-w-2xl mx-auto text-gray-600 font-light text-sm sm:text-base leading-relaxed">
             Participate in interactive cybersecurity sprints, incident drills, reverse engineering forums, and professional webinars.
           </p>
         </div>
@@ -128,7 +128,7 @@ const Events = () => {
         {/* Timeline wrapper */}
         <div className="relative mt-12">
           {/* Vertical axis line on desktop */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-cyber-cyan via-cyber-purple to-cyber-cyan/10 hidden lg:block" />
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-cyber-cyan via-black to-cyber-cyan/10 hidden lg:block" />
 
           {/* Timeline events container */}
           <div className="space-y-12 relative lg:space-y-20">
@@ -153,12 +153,16 @@ const Events = () => {
 
                   {/* Event Card */}
                   <div className="timeline-event-card w-full lg:w-[46%]">
-                    <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-cyber-cyan/30 hover:shadow-neon transition-all duration-300 relative group overflow-hidden text-left">
-                      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-cyber-cyan to-cyber-purple opacity-40" />
+                    <div className="dino-panel-light dino-panel-light-hover p-6 sm:p-8 rounded-none relative group overflow-hidden text-left">
+                      
+                      {/* Faded Background Index */}
+                      <div className="absolute right-6 top-2 text-8xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
+                        {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                      </div>
 
                       {/* Header details (Date tag & Type badge) */}
                       <div className="flex items-center justify-between mb-4">
-                        <span className="font-mono text-[10px] text-gray-400 font-medium">
+                        <span className="font-space font-bold text-xs bg-white border-2 border-black shadow-[2px_2px_0_#2563EB] text-gray-900 px-2.5 py-0.5 rounded-none uppercase">
                           {ev.date}
                         </span>
                         <span className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded border uppercase ${ev.color}`}>
@@ -167,17 +171,15 @@ const Events = () => {
                       </div>
 
                       {/* Event Title */}
-                      <div className="flex items-center space-x-3 mb-3">
-                        <div className="p-2 bg-white/5 rounded-lg border border-white/10 text-cyber-cyan">
-                          <IconComponent className="w-4 h-4" />
-                        </div>
-                        <h3 className="text-base sm:text-lg font-space font-bold uppercase tracking-wider text-white group-hover:text-cyber-cyan transition-colors">
-                          {ev.title}
+                      <div className="flex items-center justify-between mb-3 w-full">
+                        <h3 className="text-base sm:text-lg font-space font-bold uppercase tracking-wider text-gray-900 group-hover:text-cyber-cyan transition-colors flex items-center justify-between w-full">
+                          <span>□ {ev.title}</span>
+                          <IconComponent className="w-4 h-4 text-gray-400 group-hover:text-cyber-cyan group-hover:rotate-12 transition-all shrink-0 ml-2" />
                         </h3>
                       </div>
 
                       {/* Event description */}
-                      <p className="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">
+                      <p className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed">
                         {ev.desc}
                       </p>
                     </div>

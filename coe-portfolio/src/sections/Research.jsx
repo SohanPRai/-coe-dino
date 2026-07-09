@@ -36,34 +36,22 @@ const bottomRow = [
 
 /* ── Marquee card ───────────────────────────────────── */
 const ResearchCard = ({ icon: Icon, tag, title, desc }) => (
-  <figure
-    className="relative w-72 flex-shrink-0 cursor-pointer overflow-hidden rounded-none p-5 group"
-    style={{
-      background: '#0d0d0d',
-      border: '1px solid #1f1f1f',
-      boxShadow: '7px 7px 0 #0066cc',
-      transition: 'box-shadow 0.2s ease, transform 0.2s ease',
-    }}
-    onMouseEnter={e => { e.currentTarget.style.boxShadow = '9px 9px 0 #f97316'; e.currentTarget.style.transform = 'translate(-2px,-2px)'; }}
-    onMouseLeave={e => { e.currentTarget.style.boxShadow = '7px 7px 0 #0066cc'; e.currentTarget.style.transform = 'translate(0,0)'; }}
-  >
+  <figure className="relative w-72 flex-shrink-0 cursor-pointer overflow-hidden rounded-none p-5 group dino-panel-light dino-panel-light-hover">
     {/* Tag row */}
     <div className="flex items-center gap-2 mb-3">
-      <Icon className="w-3.5 h-3.5" style={{ color: '#f97316' }} />
-      <span className="font-mono text-[10px] tracking-widest font-bold uppercase"
-            style={{ color: '#f97316' }}>
+      <Icon className="w-3.5 h-3.5" style={{ color: '#2563EB' }} />
+      <span className="font-mono text-[10px] tracking-widest font-bold uppercase text-cyber-cyan">
         {tag}
       </span>
     </div>
 
     {/* Title */}
-    <figcaption className="font-mono font-bold text-sm uppercase tracking-wide mb-2"
-                style={{ color: '#f1f1f1' }}>
+    <figcaption className="font-mono font-bold text-sm uppercase tracking-wide mb-2 text-gray-900">
       {title}
     </figcaption>
 
     {/* Description */}
-    <p className="font-mono text-xs leading-relaxed" style={{ color: '#6b7280' }}>
+    <p className="font-mono text-xs leading-relaxed text-gray-600">
       {desc}
     </p>
   </figure>
@@ -107,14 +95,14 @@ const Research = () => {
         {/* Header */}
         <div className="research-header text-center mb-16">
           <div className="inline-block px-3 py-1 border rounded-full font-mono text-xs font-semibold tracking-widest mb-4 uppercase"
-               style={{ color: '#f97316', borderColor: '#f97316', background: 'rgba(249,115,22,0.08)' }}>
+               style={{ color: '#2563EB', borderColor: '#2563EB', background: 'rgba(37,99,235,0.08)' }}>
             ACADEMIC INNOVATION
           </div>
           <h2 className="font-mono font-extrabold uppercase tracking-wider text-3xl sm:text-4xl mb-4 text-cyber-light">
-            Advanced <span style={{ color: '#0066cc' }}>Research Initiatives</span>
+            Advanced <span style={{ color: '#2563EB' }}>Research Initiatives</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#0066cc] to-[#f97316] mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto font-mono text-sm sm:text-base leading-relaxed" style={{ color: '#6b7280' }}>
+          <div className="w-20 h-1 bg-gradient-to-r from-[#2563EB] to-[#1d4ed8] mx-auto mb-6" />
+          <p className="max-w-2xl mx-auto font-mono text-sm sm:text-base leading-relaxed" style={{ color: '#4b5563' }}>
             Exploring new frontiers in security intelligence to resolve complex digital problems before they compromise global architectures.
           </p>
         </div>
@@ -126,54 +114,38 @@ const Research = () => {
             return (
               <div
                 key={idx}
-                className="research-card relative group flex flex-col justify-between p-8 rounded-none"
-                style={{
-                  background: '#0d0d0d',
-                  border: '1px solid #1f1f1f',
-                  boxShadow: '8px 8px 0 #0066cc',
-                  transition: 'box-shadow 0.2s ease, transform 0.2s ease',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = '10px 10px 0 #f97316'; e.currentTarget.style.transform = 'translate(-2px,-2px)'; }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = '8px 8px 0 #0066cc'; e.currentTarget.style.transform = 'translate(0,0)'; }}
+                className="research-card relative group flex flex-col justify-between p-8 rounded-none dino-panel-light dino-panel-light-hover"
               >
                 <div>
-                  {/* Tag + Icon row */}
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-[10px] tracking-widest font-bold uppercase px-2.5 py-1 border"
-                          style={{ color: '#f97316', borderColor: '#f97316', background: 'rgba(249,115,22,0.08)' }}>
+                  {/* Tag Header */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-[10px] tracking-widest font-bold uppercase px-2.5 py-1 border bg-cyber-cyan/10 border-cyber-cyan/20 text-cyber-cyan">
                       {pub.tag}
                     </span>
-                    <div className="p-2.5 border transition-all duration-300"
-                         style={{ borderColor: '#2a2a2a', color: '#6b7280' }}>
-                      <Icon className="w-5 h-5 group-hover:rotate-6 transition-transform" />
-                    </div>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="font-mono font-bold uppercase tracking-wider text-base mb-3"
-                      style={{ color: '#f1f1f1', letterSpacing: '0.08em' }}>
-                    {pub.title}
+                  {/* Title + Minimalist Icon */}
+                  <h3 className="font-mono font-bold uppercase tracking-wider text-base mb-3 flex items-center justify-between text-gray-900" style={{ letterSpacing: '0.08em' }}>
+                    <span>□ {pub.title}</span>
+                    <Icon className="w-4 h-4 text-gray-400 group-hover:text-cyber-cyan group-hover:rotate-6 transition-all shrink-0" />
                   </h3>
 
                   {/* Description */}
-                  <p className="font-mono text-xs leading-relaxed mb-6" style={{ color: '#6b7280' }}>
+                  <p className="font-mono text-xs leading-relaxed mb-6 text-gray-600">
                     {pub.desc}
                   </p>
                 </div>
 
                 {/* CTA */}
                 <a href="#contact"
-                   className="interactive flex items-center gap-2 font-mono text-xs font-bold tracking-widest uppercase mt-auto w-fit"
-                   style={{ color: '#f97316' }}>
+                   className="interactive flex items-center gap-2 font-mono text-xs font-bold tracking-widest uppercase mt-auto w-fit text-cyber-cyan">
                   <span>LEARN MORE</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </a>
 
                 {/* Corner accent */}
                 <span className="absolute top-0 right-0 w-0 h-0
-                  border-t-[28px] border-r-[28px]"
-                  style={{ borderTopColor: '#0066cc', borderRightColor: '#0066cc',
-                           borderLeftColor: 'transparent', borderBottomColor: 'transparent' }} />
+                  border-t-[28px] border-r-[28px] border-t-cyber-cyan border-r-cyber-cyan border-l-transparent border-b-transparent" />
               </div>
             );
           })}
