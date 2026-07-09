@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Shield, Cpu, Terminal, ArrowRight, ShieldCheck } from 'lucide-react';
 import MagneticButton from '../components/MagneticButton';
 import gsap from 'gsap';
+import coeLogo from '../images/coe_logo_transparent.png';
 
 // Custom ScrambleTextPlugin for GSAP 3
 const ScrambleTextPlugin = {
@@ -255,7 +256,7 @@ const Hero = () => {
               <a
                 href="#about"
                 onClick={(e) => scrollToSection(e, '#about')}
-                className="interactive px-7 py-3.5 bg-cyber-cyan text-cyber-bg font-space font-semibold rounded-full border border-cyber-cyan hover:bg-transparent hover:text-cyber-cyan hover:shadow-neon transition-all duration-300 inline-flex items-center space-x-2 text-sm shadow-neon"
+                className="interactive px-7 py-3.5 bg-cyber-cyan text-cyber-bg font-space font-semibold rounded-full border-2 border-black hover:bg-transparent hover:text-cyber-cyan hover:shadow-neon-strong transition-all duration-300 inline-flex items-center space-x-2 text-sm shadow-neon-strong"
               >
                 <span>Explore Centre</span>
                 <ArrowRight className="w-4 h-4" />
@@ -266,7 +267,7 @@ const Hero = () => {
               <a
                 href="#domains"
                 onClick={(e) => scrollToSection(e, '#domains')}
-                className="interactive px-7 py-3.5 bg-white/5 backdrop-blur-md text-white font-space font-semibold rounded-full border border-white/10 hover:border-cyber-cyan/50 hover:bg-white/10 transition-all duration-300 text-sm inline-flex items-center space-x-2"
+                className="interactive px-7 py-3.5 bg-cyber-cyan text-cyber-bg font-space font-semibold rounded-full border-2 border-black hover:bg-transparent hover:text-cyber-cyan hover:shadow-neon-strong transition-all duration-300 text-sm inline-flex items-center space-x-2 shadow-neon-strong"
               >
                 <span>Research Areas</span>
               </a>
@@ -342,11 +343,9 @@ const Hero = () => {
             </g>
           </svg>
 
-          {/* Central Hologram Shield - Floating inside the SVG frame */}
-          <div className="hero-shield absolute w-[140px] h-[140px] bg-cyber-bg/80 border border-cyber-cyan/40 rounded-3xl flex items-center justify-center shadow-neon-strong backdrop-blur-md">
-            <ShieldCheck className="w-16 h-16 text-cyber-cyan animate-pulse-slow" />
-            {/* Core rotating details */}
-            <div className="absolute inset-2 border border-dashed border-cyber-purple/40 rounded-2xl animate-spin [animation-duration:12s]" />
+          {/* Central Hologram Logo - Floating inside the SVG frame */}
+          <div className="hero-shield absolute flex items-center justify-center pointer-events-none">
+            <img src={coeLogo} alt="CoE Logo" className="w-[250px] h-[250px] object-contain animate-pulse-slow z-10 filter drop-shadow-[0_0_15px_rgba(0,102,204,0.2)]" />
           </div>
 
           {/* Floating Data Card 1 */}

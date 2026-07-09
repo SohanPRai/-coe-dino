@@ -128,7 +128,7 @@ const Labs = () => {
         </div>
 
         {/* Labs Cards Grid */}
-        <div className="labs-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="labs-grid flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
           {labs.map((lab, idx) => {
             const IconComponent = lab.icon;
             const offsets = [
@@ -141,7 +141,7 @@ const Labs = () => {
             return (
               <div
                 key={idx}
-                className={`lab-card dino-panel-light dino-panel-light-hover rounded-none relative overflow-hidden group flex flex-col justify-between ${offsets[idx] || ''}`}
+                className={`lab-card dino-panel-light dino-panel-light-hover rounded-none relative overflow-hidden group flex flex-col justify-between w-full md:w-[calc(50%-16px)] lg:w-[calc(33.33%-22px)] max-w-md ${offsets[idx] || ''}`}
               >
                 {/* Faded Background Index */}
                 <div className="absolute right-6 top-2 text-8xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">

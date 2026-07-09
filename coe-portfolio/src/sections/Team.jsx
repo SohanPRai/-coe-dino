@@ -3,40 +3,205 @@ import { Linkedin, Github, Twitter, Mail, ShieldAlert } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+// Import images from src/images
+import chairmanImg from '../images/chairman.png';
+import ceoImg from '../images/ceo.png';
+import directorImg from '../images/director.png';
+import principalImg from '../images/principal.png';
+import srinivasImg from '../images/srinivas.png';
+import ananthImg from '../images/ananth.png';
+import hodImg from '../images/hod.png';
+import harishaImg from '../images/harisha.png';
+import vidyavvImg from '../images/vidyavv.png';
+import alakanandaImg from '../images/alakananda.png';
+import adishImg from '../images/adish.png';
+import likithImg from '../images/likith.png';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Team = () => {
   const containerRef = useRef(null);
 
-  const members = [
+  // Grouped Team Categories with placeholders
+  const categories = [
     {
-      name: 'Dr. Ananth Kumar',
-      role: 'HoD & Director, CoE',
-      desc: '20+ years in cryptography and firmware authentication. Advises regional cybersecurity protocols.',
-      social: { linkedin: '#', twitter: '#', mail: 'mailto:hod.cs@sahyadri.edu.in' },
-      seed: 'operator-1',
+      id: 'chairman',
+      title: 'Chairman',
+      members: [
+        {
+          name: 'Dr.Manjunath Bhandary',
+          desc: 'Chairman, SCEM',
+          image: chairmanImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: 'mailto:chairman@example.com' },
+          seed: 'chairman-1'
+        }
+      ]
     },
     {
-      name: 'Prof. Ramesh Rao',
-      role: 'Head of Digital Forensics',
-      desc: 'Ex-consultant for law enforcement agency networks. Expert in raw memory data reconstruction.',
-      social: { linkedin: '#', github: '#', mail: 'mailto:ramesh.cs@sahyadri.edu.in' },
-      seed: 'operator-2',
+      id: 'advisors',
+      title: 'Advisors',
+      members: [
+        {
+          name: 'Mr.Johnson Tellis',
+          desc: 'CEO, Bhandary Foundation.',
+          image: ceoImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'advisor-1'
+        },
+        {
+          name: 'Dr. Manjappa Sarathi',
+          desc: 'Director R&D, SCEM',
+          image: directorImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'advisor-2'
+        },
+        {
+          name: 'Dr. S S Injaganeri',
+          desc: 'Principal, SCEM',
+          image: principalImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'advisor-3'
+        }
+      ]
     },
     {
-      name: 'Dr. Sandeep Hegde',
-      role: 'IoT Lab Coordinator',
-      desc: 'Investigating vulnerabilities in edge routers, wireless systems, and controller boards.',
-      social: { linkedin: '#', github: '#', mail: 'mailto:sandeep.cs@sahyadri.edu.in' },
-      seed: 'operator-3',
+      id: 'mentors',
+      title: 'Mentors and Collaborators',
+      members: [
+        {
+          name: 'Dr. Mustafa Basthikodi',
+          desc: 'HOD, Dept of CSE, SCEM',
+          image: hodImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'mentor-1'
+        }
+      ]
     },
     {
-      name: 'Sweekar Shetty',
-      role: 'Student CoE Coordinator',
-      desc: 'Offensive security enthusiast, CTF challenge developer, and active full-stack web architect.',
-      social: { linkedin: '#', github: '#', twitter: '#' },
-      seed: 'operator-4',
+      id: 'pi',
+      title: 'Principal Investigators',
+      members: [
+        {
+          name: 'Dr. Ananth Kumar',
+          desc: 'Principal Investigator',
+          image: ananthImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: 'mailto:ananth@example.com' },
+          seed: 'pi-1'
+        },
+        {
+          name: 'Mr. Harisha',
+          desc: 'Co-Principal Investigator',
+          image: harishaImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'pi-2'
+        }
+      ]
     },
+    {
+      id: 'faculty',
+      title: 'Faculty Team',
+      members: [
+        {
+          name: 'Mr. Harisha',
+          image: harishaImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'faculty-1'
+        },
+        {
+          name: 'Mrs. Vidya VV',
+          image: vidyavvImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'faculty-2'
+        },
+        {
+          name: 'Ms. Alakananda',
+          image: alakanandaImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'faculty-3'
+        },
+        {
+          name: 'Prof. Srinivas P M',
+          image: srinivasImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'faculty-4'
+        }
+      ]
+    },
+    {
+      id: 'resource',
+      title: 'Resource Persons',
+      members: [
+        {
+          name: 'Likith U Salian',
+          desc: 'M.Sc in Cyber Security',
+          image: likithImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'resource-1'
+        },
+        {
+          name: 'Adish Yermal',
+          desc: 'Engineer at Tata Elxsi',
+          image: adishImg,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'resource-2'
+        }
+      ]
+    },
+    {
+      id: 'contributors',
+      title: 'Contributers',
+      members: [
+        {
+          name: 'Contributor 1 Name',
+          role: 'Contributor',
+          desc: 'Description placeholder for Contributor 1.',
+          image: null,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'contributor-1'
+        },
+        {
+          name: 'Contributor 2 Name',
+          role: 'Contributor',
+          desc: 'Description placeholder for Contributor 2.',
+          image: null,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'contributor-2'
+        },
+        {
+          name: 'Contributor 3 Name',
+          role: 'Contributor',
+          desc: 'Description placeholder for Contributor 3.',
+          image: null,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'contributor-3'
+        },
+        {
+          name: 'Contributor 4 Name',
+          role: 'Contributor',
+          desc: 'Description placeholder for Contributor 4.',
+          image: null,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'contributor-4'
+        },
+        {
+          name: 'Contributor 5 Name',
+          className: "ml-30",
+          role: 'Contributor',
+          desc: 'Description placeholder for Contributor 5.',
+          image: null,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'contributor-5'
+        },
+        {
+          name: 'Contributor 6 Name',
+          role: 'Contributor',
+          desc: 'Description placeholder for Contributor 6.',
+          image: null,
+          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          seed: 'contributor-6'
+        }
+      ]
+    }
   ];
 
   useEffect(() => {
@@ -56,46 +221,104 @@ const Team = () => {
         }
       );
 
-      // Profile cards stagger
-      gsap.fromTo(
-        '.team-member-card',
-        { opacity: 0, scale: 0.95, y: 30 },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '.team-grid',
-            start: 'top 80%',
-          },
+      // Section animations per category
+      gsap.utils.toArray('.team-category-section').forEach((section) => {
+        const header = section.querySelector('.team-category-header');
+        const cards = section.querySelectorAll('.team-member-card');
+
+        if (header) {
+          gsap.fromTo(
+            header,
+            { opacity: 0, x: -20 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.6,
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 85%',
+              },
+            }
+          );
         }
-      );
+
+        if (cards.length > 0) {
+          gsap.fromTo(
+            cards,
+            { opacity: 0, scale: 0.95, y: 20 },
+            {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              duration: 0.6,
+              stagger: 0.1,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+              },
+            }
+          );
+        }
+      });
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
-  // Custom vector avatar layout
-  const renderAvatar = (seed) => {
+  // Custom vector avatar layout or image render
+  const renderAvatar = (image, seed) => {
     return (
       <div className="relative w-32 h-32 mx-auto rounded-full border border-cyber-cyan/30 flex items-center justify-center p-2 group-hover:border-cyber-cyan group-hover:shadow-neon transition-all duration-300 overflow-hidden bg-cyber-darker">
         {/* Glowing orbital grid */}
-        <div className="absolute inset-1.5 border border-dashed border-cyber-cyan/20 rounded-full animate-spin [animation-duration:16s] group-hover:border-cyber-cyan/50" />
-        
-        {/* Core cyber agent logo */}
-        <ShieldAlert className="w-12 h-12 text-cyber-cyan/50 group-hover:text-cyber-cyan group-hover:scale-110 transition-all duration-300" />
+        <div className="absolute inset-1.5 border border-dashed border-cyber-cyan/20 rounded-full animate-spin [animation-duration:16s] group-hover:border-cyber-cyan/50 z-10 pointer-events-none" />
 
-        {/* Matrix code lines floating in bg */}
-        <div className="absolute inset-0 opacity-10 group-hover:opacity-20 flex flex-col justify-around font-mono text-[7px] text-cyber-cyan select-none pointer-events-none transition-opacity">
-          <div>01101011</div>
-          <div>10010010</div>
-          <div>00111101</div>
-        </div>
+        {image ? (
+          <img
+            src={image}
+            alt="Team member profile"
+            className="w-full h-full object-cover rounded-full transition-all duration-300 group-hover:scale-105"
+          />
+        ) : (
+          <ShieldAlert className="w-12 h-12 text-cyber-cyan/50 group-hover:text-cyber-cyan group-hover:scale-110 transition-all duration-300 z-10" />
+        )}
+
+        {/* Matrix code lines floating in bg (only if no image) */}
+        {!image && (
+          <div className="absolute inset-0 opacity-10 group-hover:opacity-20 flex flex-col justify-around font-mono text-[7px] text-cyber-cyan select-none pointer-events-none transition-opacity">
+            <div>01101011</div>
+            <div>10010010</div>
+            <div>00111101</div>
+          </div>
+        )}
       </div>
     );
+  };
+
+  // Helper for layout classes (using flexbox to allow centering remaining items on wrapped rows)
+  const getLayoutClasses = (count) => {
+    if (count === 1) {
+      return {
+        container: 'flex flex-wrap justify-center gap-8 max-w-sm mx-auto',
+        item: 'w-full'
+      };
+    }
+    if (count === 2) {
+      return {
+        container: 'flex flex-wrap justify-center gap-8 max-w-3xl mx-auto',
+        item: 'w-full sm:w-[calc(50%-16px)] max-w-sm'
+      };
+    }
+    if (count === 3) {
+      return {
+        container: 'flex flex-wrap justify-center gap-8 max-w-5xl mx-auto',
+        item: 'w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.33%-22px)] max-w-sm'
+      };
+    }
+    return {
+      container: 'flex flex-wrap justify-center gap-8 max-w-7xl mx-auto',
+      item: 'w-full sm:w-[calc(50%-16px)] lg:w-[calc(25%-24px)] max-w-sm'
+    };
   };
 
   return (
@@ -108,8 +331,8 @@ const Team = () => {
       <div className="absolute left-1/4 top-1/3 w-[300px] h-[300px] bg-cyber-cyan/5 blur-[90px] rounded-full pointer-events-none -z-10 animate-pulse-slow" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
+
+        {/* Main Section Header */}
         <div className="team-header text-center mb-16">
           <div className="inline-block px-3 py-1 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full text-cyber-cyan text-xs font-mono font-medium tracking-wider mb-4 shadow-neon">
             COE LEADERSHIP
@@ -123,82 +346,100 @@ const Team = () => {
           </p>
         </div>
 
-        {/* Team Grid */}
-        <div className="team-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {members.map((member, idx) => {
-            const offsets = [
-              'lg:translate-y-0',
-              'lg:translate-y-4',
-              'lg:-translate-y-2',
-              'lg:translate-y-2'
-            ];
-            return (
-              <div
-                key={idx}
-                className={`team-member-card dino-panel-light dino-panel-light-hover p-8 rounded-none text-center relative group ${offsets[idx] || ''}`}
-              >
-                {/* Faded Background Index */}
-                <div className="absolute right-6 top-2 text-8xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
-                  {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
-                </div>
+        {/* Team Categories Rendering */}
+        {categories.map((category) => (
+          <div key={category.id} className="team-category-section mb-16">
 
-                {/* Circular Avatar */}
-                <div className="mb-6 relative">
-                  {renderAvatar(member.seed)}
-                </div>
-
-                {/* Name & Role */}
-                <h3 className="text-lg font-space font-bold uppercase tracking-wider text-gray-900 mb-1 group-hover:text-cyber-cyan transition-colors">
-                  □ {member.name}
+            {/* Category Subheading */}
+            <div className="team-category-header mb-8 flex items-center justify-between border-b border-gray-200 pb-2">
+              <div className="flex items-center space-x-2">
+                <span className="text-cyber-cyan text-sm font-mono">//</span>
+                <h3 className="text-lg sm:text-xl font-bold uppercase tracking-wider text-gray-800 font-space">
+                  {category.title}
                 </h3>
-                <p className="text-xs font-mono font-bold text-cyber-cyan tracking-widest uppercase mb-4">
-                  {member.role}
-                </p>
-
-              {/* Profile Description */}
-              <p className="text-gray-600 text-xs font-light leading-relaxed mb-6">
-                {member.desc}
-              </p>
-
-              {/* Hover-reveal Social Icons */}
-              <div className="flex items-center justify-center space-x-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                {member.social.linkedin && (
-                  <a
-                    href={member.social.linkedin}
-                    className="interactive p-2 rounded-lg bg-cyber-navy hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-gray-200 hover:border-cyber-cyan/30 text-gray-700 transition-all"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                )}
-                {member.social.github && (
-                  <a
-                    href={member.social.github}
-                    className="interactive p-2 rounded-lg bg-cyber-navy hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-gray-200 hover:border-cyber-cyan/30 text-gray-700 transition-all"
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
-                )}
-                {member.social.twitter && (
-                  <a
-                    href={member.social.twitter}
-                    className="interactive p-2 rounded-lg bg-cyber-navy hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-gray-200 hover:border-cyber-cyan/30 text-gray-700 transition-all"
-                  >
-                    <Twitter className="w-4 h-4" />
-                  </a>
-                )}
-                {member.social.mail && (
-                  <a
-                    href={member.social.mail}
-                    className="interactive p-2 rounded-lg bg-cyber-navy hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-gray-200 hover:border-cyber-cyan/30 text-gray-700 transition-all"
-                  >
-                    <Mail className="w-4 h-4" />
-                  </a>
-                )}
               </div>
-
+              <div className="text-[10px] font-mono text-gray-400 uppercase tracking-widest hidden sm:block">
+                {category.members.length} {category.members.length === 1 ? 'member' : 'members'}
+              </div>
             </div>
-          );})}
-        </div>
+
+            {/* Category Members Grid */}
+            <div className={getLayoutClasses(category.members.length).container}>
+              {category.members.map((member, idx) => (
+                <div
+                  key={idx}
+                  className={`team-member-card dino-panel-light dino-panel-light-hover p-8 rounded-none text-center relative group ${getLayoutClasses(category.members.length).item}`}
+                >
+                  {/* Faded Background Index */}
+                  <div className="absolute right-6 top-2 text-8xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
+                    {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                  </div>
+
+                  {/* Circular Avatar */}
+                  <div className="mb-6 relative">
+                    {renderAvatar(member.image, member.seed)}
+                  </div>
+
+                  {/* Name & Role */}
+                  <h3 className="text-lg font-space font-bold uppercase tracking-wider text-gray-900 mb-1 group-hover:text-cyber-cyan transition-colors">
+                    □ {member.name}
+                  </h3>
+                  <p className="text-xs font-mono font-bold text-cyber-cyan tracking-widest uppercase mb-4">
+                    {member.role}
+                  </p>
+
+                  {/* Profile Description */}
+                  <p className="text-gray-600 text-xs font-light leading-relaxed mb-6">
+                    {member.desc}
+                  </p>
+
+                  {/* Hover-reveal Social Icons */}
+                  <div className="flex items-center justify-center space-x-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                    {member.social.linkedin && (
+                      <a
+                        href={member.social.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="interactive p-2 rounded-lg bg-cyber-navy hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-gray-200 hover:border-cyber-cyan/30 text-gray-700 transition-all"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                      </a>
+                    )}
+                    {member.social.github && (
+                      <a
+                        href={member.social.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="interactive p-2 rounded-lg bg-cyber-navy hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-gray-200 hover:border-cyber-cyan/30 text-gray-700 transition-all"
+                      >
+                        <Github className="w-4 h-4" />
+                      </a>
+                    )}
+                    {member.social.twitter && (
+                      <a
+                        href={member.social.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="interactive p-2 rounded-lg bg-cyber-navy hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-gray-200 hover:border-cyber-cyan/30 text-gray-700 transition-all"
+                      >
+                        <Twitter className="w-4 h-4" />
+                      </a>
+                    )}
+                    {member.social.mail && (
+                      <a
+                        href={member.social.mail}
+                        className="interactive p-2 rounded-lg bg-cyber-navy hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-gray-200 hover:border-cyber-cyan/30 text-gray-700 transition-all"
+                      >
+                        <Mail className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        ))}
 
       </div>
     </section>

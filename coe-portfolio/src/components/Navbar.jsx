@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ShieldAlert } from 'lucide-react';
 import MagneticButton from './MagneticButton';
 import gsap from 'gsap';
+import coeLogo from '../images/coe_logo_transparent.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -88,8 +89,8 @@ const Navbar = () => {
               onClick={(e) => handleLinkClick(e, '#home')}
               className="flex items-center space-x-2 group interactive"
             >
-              <div className="relative p-1.5 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 group-hover:border-cyber-cyan group-hover:shadow-neon transition-all duration-300">
-                <ShieldAlert className="w-6 h-6 text-cyber-cyan group-hover:rotate-12 transition-transform duration-300" />
+              <div className="relative p-1 rounded-lg bg-cyber-cyan/5 border border-cyber-cyan/30 group-hover:border-cyber-cyan group-hover:shadow-neon transition-all duration-300 flex items-center justify-center w-9 h-9 overflow-hidden">
+                <img src={coeLogo} alt="CoE Logo" className="w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-300" />
               </div>
               <div className="flex flex-col">
                 <span className="font-space font-bold text-lg text-cyber-light leading-none tracking-wide group-hover:text-cyber-cyan transition-colors">
