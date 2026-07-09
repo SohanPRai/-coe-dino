@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Center of Excellence – Digital Forensic Intelligence</title>
+  <meta name="description" content="Center of Excellence in Cyber Security, Artificial Intelligence, and Cloud Computing at Sahyadri College of Engineering & Management.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800;900&family=Pixelify+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- FULL-PAGE AMBIENT LAYER (behind everything, pointer-events none) -->
+  <!-- Birds and meteors live here so they travel across the whole page -->
+  <div class="ambient-layer" id="ambient-layer" aria-hidden="true">
+    <div id="ambient-birds-container"></div>
+    <div id="ambient-meteors-container"></div>
+    <div id="ambient-particles-container"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" alt="COE Logo" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-top">DIGITAL FORENSIC</span>
+          <span class="logo-bottom">INTELLIGENCE</span>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#hero"       class="nav-link active">Home</a></li>
+        <li><a href="#about"      class="nav-link">About</a></li>
+        <li><a href="#vision"     class="nav-link">Vision</a></li>
+        <li><a href="#objectives" class="nav-link">Objectives</a></li>
+        <li><a href="#domains"    class="nav-link">Domains</a></li>
+        <li><a href="#facilities" class="nav-link">Facilities</a></li>
+        <li><a href="#projects"   class="nav-link">Projects</a></li>
+        <li><a href="#events"     class="nav-link">Events</a></li>
+        <li><a href="#contact"    class="nav-link">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-btn">Contact Us &rarr;</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero-section" id="hero">
+
+    <!-- LEFT PANEL – stays pure white all the way to its right edge -->
+    <div class="hero-left">
+      <div class="hero-left-content">
+        <span class="hero-subtitle">DIGITAL FORENSIC INTELLIGENCE</span>
+        <h1 class="hero-title">
+          Center of<br>
+          <span class="blue-text underline-text">Excellence</span>
+        </h1>
+        <div class="hero-divider"></div>
+        <p class="hero-domains">Cyber Security &bull; Artificial Intelligence &bull; Cloud Computing</p>
+        <p class="hero-college">Sahyadri College of Engineering &amp; Management</p>
+        <div class="hero-actions">
+          <a href="#about"   class="btn btn-primary"  id="btn-explore">Explore CoE &rarr;</a>
+          <a href="#domains" class="btn btn-secondary" id="btn-learn">Learn More &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL – Spline scene on pure black background -->
+    <div class="hero-right">
+      <!-- Stars only on Spline side -->
+      <div class="stars-bg" aria-hidden="true"></div>
+      <!-- Spline iframe; wrapper clips watermark -->
+      <div class="spline-wrapper">
+        <iframe
+          src="https://my.spline.design/boxeshover-5Xm8GLRK3MZj8iIkxCO30Ie1/"
+          frameborder="0"
+          title="Interactive 3D Cube Scene"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- GRADIENT BLEND – spans the full hero, transparent on left, white at junction,
+         then transparent again so Spline shows through -->
+    <div class="hero-gradient-overlay" aria-hidden="true"></div>
+
+  </header>
+
+  <!-- DINO TRACK – fixed bar that sits at the hero/content boundary -->
+  <div class="dino-track-container" id="dino-track-container">
+    <div class="dino-ground-line"></div>
+
+    <!-- Dinosaur – starts at left: 10% -->
+    <div class="dino-container" id="dino-container" role="button" aria-label="Click to make the dinosaur jump" tabindex="0">
+      <div class="dino-jump-wrapper" id="dino-jump-wrapper">
+        <div class="dino-character idle" id="dino-character">
+          <img src="dino.png" alt="" class="dino-sprite" draggable="false">
+        </div>
+      </div>
+    </div>
+
+    <!-- OBSTACLES – all bottom:0 so feet sit on the ground line -->
+    <div class="obstacles-container">
+
+      <!-- HERO: one cactus, starts off-screen right -->
+      <div class="obstacle" id="obs-hero-cactus" style="width:48px;height:36px;">
+        <img src="plant.png" alt="Cactus" class="pixel-img">
+      </div>
+
+      <!-- ABOUT: bush + flower -->
+      <div class="obstacle" id="obs-about-bush" style="width:42px;height:30px;left:110%;">
+        <svg viewBox="0 0 42 30" shape-rendering="crispEdges" aria-hidden="true">
+          <rect x="7"  y="10" width="28" height="20" fill="#2d3748" stroke="#000" stroke-width="2"/>
+          <rect x="13" y="5"  width="16" height="7"  fill="#4a5568" stroke="#000" stroke-width="2"/>
+          <rect x="17" y="13" width="4"  height="4"  fill="#a0aec0"/>
+          <rect x="25" y="19" width="4"  height="4"  fill="#a0aec0"/>
+        </svg>
+      </div>
+      <div class="obstacle" id="obs-about-flower" style="width:22px;height:32px;left:140%;">
+        <svg viewBox="0 0 22 32" shape-rendering="crispEdges" aria-hidden="true">
+          <rect x="10" y="15" width="3"  height="17" fill="#1a5cff" stroke="#000" stroke-width="1"/>
+          <rect x="6"  y="19" width="4"  height="3"  fill="#1a5cff"/>
+          <rect x="6"  y="6"  width="10" height="10" fill="#1a5cff" stroke="#000" stroke-width="1"/>
+          <rect x="9"  y="9"  width="4"  height="4"  fill="#ffffff"/>
+        </svg>
+      </div>
+
+      <!-- VISION: tiny cactus -->
+      <div class="obstacle" id="obs-vision-cactus" style="width:36px;height:26px;">
+        <img src="plant.png" alt="Small Cactus" class="pixel-img">
+      </div>
+ 
+      <!-- OBJECTIVES: server, cloud, rock -->
+      <div class="obstacle" id="obs-objectives-server" style="width:42px;height:42px;">
+        <svg viewBox="0 0 50 50" shape-rendering="crispEdges" aria-hidden="true">
+          <rect x="8"  y="4"  width="34" height="42" fill="#ffffff" stroke="#000" stroke-width="2"/>
+          <line x1="8" y1="17" x2="42" y2="17" stroke="#000" stroke-width="2"/>
+          <line x1="8" y1="29" x2="42" y2="29" stroke="#000" stroke-width="2"/>
+          <rect x="12" y="8"  width="12" height="4" fill="#1a5cff"/>
+          <rect x="12" y="21" width="12" height="4" fill="#1a5cff"/>
+          <rect x="12" y="33" width="12" height="4" fill="#1a5cff"/>
+          <circle cx="34" cy="10" r="2.5" fill="#1a5cff" class="led-flash"/>
+          <circle cx="34" cy="23" r="2.5" fill="#1a5cff" class="led-flash" style="animation-delay:.25s"/>
+          <circle cx="34" cy="35" r="2.5" fill="#1a5cff" class="led-flash" style="animation-delay:.5s"/>
+        </svg>
+      </div>
+      <div class="obstacle decoration" id="obs-objectives-cloud" style="width:45px;height:25px;bottom:38px;">
+        <svg viewBox="0 0 60 30" shape-rendering="crispEdges" aria-hidden="true">
+          <path d="M10,20 Q15,10 25,10 Q35,10 35,20 Q45,20 45,30 L5,30 Q5,20 10,20 Z" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="obstacle decoration" id="obs-objectives-rock" style="width:16px;height:12px;">
+        <svg viewBox="0 0 20 12" shape-rendering="crispEdges" aria-hidden="true">
+          <polygon points="2,10 6,4 12,2 18,10" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <!-- DOMAINS: laptop only (rock removed to reduce clutter) -->
+      <div class="obstacle" id="obs-domains-laptop" style="width:48px;height:30px;">
+        <svg viewBox="0 0 60 40" shape-rendering="crispEdges" aria-hidden="true">
+          <rect x="12" y="5"  width="36" height="22" fill="#4a5568" stroke="#000" stroke-width="2"/>
+          <rect x="15" y="8"  width="30" height="16" fill="#a0aec0"/>
+          <polygon points="6,31 54,31 50,27 10,27" fill="#2d3748" stroke="#000" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <!-- FACILITIES: server rack -->
+      <div class="obstacle" id="obs-facilities-server" style="width:42px;height:42px;">
+        <svg viewBox="0 0 50 50" shape-rendering="crispEdges" aria-hidden="true">
+          <rect x="8"  y="4"  width="34" height="42" fill="#2d3748" stroke="#000" stroke-width="2"/>
+          <line x1="8" y1="17" x2="42" y2="17" stroke="#000" stroke-width="2"/>
+          <line x1="8" y1="29" x2="42" y2="29" stroke="#000" stroke-width="2"/>
+          <rect x="12" y="8"  width="12" height="4" fill="#4a5568"/>
+          <rect x="12" y="21" width="12" height="4" fill="#4a5568"/>
+          <rect x="12" y="33" width="12" height="4" fill="#4a5568"/>
+          <circle cx="34" cy="10" r="2" fill="#1a5cff" class="led-flash"/>
+          <circle cx="34" cy="23" r="2" fill="#1a5cff" class="led-flash" style="animation-delay:.25s"/>
+          <circle cx="34" cy="35" r="2" fill="#1a5cff" class="led-flash" style="animation-delay:.5s"/>
+        </svg>
+      </div>
+
+      <!-- PROJECTS: shield -->
+      <div class="obstacle" id="obs-projects-shield" style="width:36px;height:40px;">
+        <svg viewBox="0 0 45 50" shape-rendering="crispEdges" aria-hidden="true">
+          <path d="M5,5 L40,5 L40,26 Q40,46 22.5,49 Q5,46 5,26Z" fill="#2d3748" stroke="#000" stroke-width="2"/>
+          <path d="M10,10 L35,10 L35,26 Q35,41 22.5,44 Q10,41 10,26Z" fill="#4a5568" stroke="#000" stroke-width="2"/>
+          <line x1="22.5" y1="10" x2="22.5" y2="44" stroke="#000" stroke-width="2"/>
+          <line x1="10" y1="26" x2="35" y2="26" stroke="#000" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <!-- EVENTS: bird at ducking height (bottom offset so it flies above ground) -->
+      <div class="obstacle" id="obs-events-bird" style="width:48px;height:34px;bottom:36px;">
+        <img src="bird.png" alt="Flying Bird" class="pixel-img">
+      </div>
+
+      <!-- FOOTER: checkerboard finish flag -->
+      <div class="obstacle" id="obs-footer-flag" style="width:38px;height:50px;">
+        <svg viewBox="0 0 50 60" shape-rendering="crispEdges" aria-hidden="true">
+          <rect x="10" y="4"  width="3"  height="52" fill="#000"/>
+          <rect x="13" y="4"  width="24" height="18" fill="#fff" stroke="#000" stroke-width="1"/>
+          <rect x="13" y="4"  width="6"  height="4"  fill="#000"/>
+          <rect x="25" y="4"  width="6"  height="4"  fill="#000"/>
+          <rect x="19" y="8"  width="6"  height="4"  fill="#000"/>
+          <rect x="31" y="8"  width="6"  height="4"  fill="#000"/>
+          <rect x="13" y="12" width="6"  height="4"  fill="#000"/>
+          <rect x="25" y="12" width="6"  height="4"  fill="#000"/>
+          <rect x="19" y="16" width="6"  height="4"  fill="#000"/>
+          <rect x="31" y="16" width="6"  height="4"  fill="#000"/>
+        </svg>
+      </div>
+
+    </div><!-- /.obstacles-container -->
+  </div><!-- /.dino-track-container -->
+
+  <!-- PAGE SECTIONS -->
+  <main class="content-container">
+
+    <section class="section" id="about">
+      <div class="section-content">
+        <!-- Tabs Header -->
+        <div class="about-tabs-container">
+          <button class="about-tab-btn active" data-tab="about">About</button>
+          <button class="about-tab-btn" data-tab="mission">Mission</button>
+          <button class="about-tab-btn" data-tab="vision">Vision</button>
+        </div>
+
+        <div class="about-tab-layout">
+          <!-- Left Column: CoE Logo (40%) -->
+          <div class="about-tab-left">
+            <div class="about-logo-wrapper">
+              <img src="logo.png" alt="CoE Official Logo" class="about-logo-img">
+            </div>
+          </div>
+
+          <!-- Right Column: Content (60%) -->
+          <div class="about-tab-right">
+            
+            <!-- About Tab Content -->
+            <div class="about-tab-content active" id="tab-about">
+              <h2 class="about-content-title">About CoE Cyber Security</h2>
+              <p class="about-content-text">Established in 2018, the Centre of Excellence in Digital Forensics and Cyber Security aims to address the growing threat of cybercrime. Our state-of-the-art lab is dedicated to providing a platform for students, researchers, and professionals to collaborate and innovate in the field of cyber security.</p>
+              
+              <div class="card about-subcard">
+                <h3>Core Values</h3>
+                <p>Innovation, Integrity, Collaboration, and Continuous Learning. We build secure foundations for the digital future.</p>
+              </div>
+            </div>
+
+            <!-- Mission Tab Content -->
+            <div class="about-tab-content" id="tab-mission">
+              <h2 class="about-content-title">Our Mission</h2>
+              <p class="about-content-text">To cultivate state-of-the-art expertise in Cyber Security, Artificial Intelligence, and Cloud Infrastructure through academic excellence and industry partnerships.</p>
+              
+              <div class="card about-subcard">
+                <h3>Key Objectives</h3>
+                <ul class="about-bullet-list">
+                  <li>🔒 Establish secure foundations for national digital infrastructures.</li>
+                  <li>🧠 Advance local research in Machine Learning and Computer Vision.</li>
+                  <li>☁️ Promote resilient, scalable containerized cloud infrastructures.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Vision Tab Content -->
+            <div class="about-tab-content" id="tab-vision">
+              <h2 class="about-content-title">Our Vision</h2>
+              <p class="about-content-text">To establish a world-class center of research and development, pioneering secure digital transformation and cultivating next-generation technocrats.</p>
+              
+              <div class="card about-subcard">
+                <h3>Future Outlook</h3>
+                <p>Empowering students and researchers to push the boundaries of technology, transforming the region into a key hub for cybersecurity and advanced computation.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="objectives">
+      <div class="section-content">
+        <h2 class="section-title">
+          <span class="chapter-label">// CHAPTER 05</span><br>
+          Objectives
+        </h2>
+        
+        <div class="objectives-layout">
+          <!-- LEFT SIDE: Cards Grid (65%) -->
+          <div class="objectives-cards">
+            <!-- Card 1 -->
+            <div class="card objective-card">
+              <div class="pixel-icon pulse-icon">🎓</div>
+              <h3>EDUCATIONAL SUPPORT</h3>
+              <p>Create a collaborative environment between the college, government agencies, and industry partners to share knowledge, cybersecurity expertise, and real-world research opportunities.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="card objective-card">
+              <div class="pixel-icon pulse-icon">🏢</div>
+              <h3>GOVERNMENT SUPPORT</h3>
+              <p>Support law enforcement agencies and government organizations with cybersecurity expertise, digital forensic research, and technical investigations.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="card objective-card">
+              <div class="pixel-icon pulse-icon">🔍</div>
+              <h3>RESEARCH</h3>
+              <p>Promote advanced research in Digital Forensics, Cyber Security, Artificial Intelligence, and Cloud Computing through innovation and collaborative projects.</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="card objective-card">
+              <div class="pixel-icon pulse-icon">📜</div>
+              <h3>TRAINING</h3>
+              <p>Conduct workshops, hands-on labs, hackathons, capture-the-flag events, and industrial training to prepare students for the cybersecurity industry.</p>
+            </div>
+          </div>
+
+          <!-- RIGHT SIDE: Pixel Workstation (35%) with Official CoE Branding -->
+          <div class="objectives-illustration">
+            <div class="pixel-workstation">
+              <!-- Connection Lines (SVG) -->
+              <svg class="connection-lines" viewBox="0 0 280 320" aria-hidden="true">
+                <!-- Laptop -->
+                <path d="M 140 110 L 140 170 L 60 170 L 60 220" fill="none" stroke="#1a5cff" stroke-width="2" class="pulse-line"/>
+                <!-- Server -->
+                <path d="M 140 110 L 140 170 L 230 170 L 230 210" fill="none" stroke="#1a5cff" stroke-width="2" class="pulse-line" style="animation-delay: 0.5s;"/>
+                <!-- Cloud -->
+                <path d="M 140 110 L 140 40 L 200 40" fill="none" stroke="#1a5cff" stroke-width="2" class="pulse-line" style="animation-delay: 1s;"/>
+                <!-- Lock -->
+                <path d="M 90 110 L 45 110" fill="none" stroke="#1a5cff" stroke-width="2" class="pulse-line" style="animation-delay: 1.5s;"/>
+                <!-- Shield -->
+                <path d="M 140 60 L 140 33 L 115 33" fill="none" stroke="#1a5cff" stroke-width="2" class="pulse-line" style="animation-delay: 2s;"/>
+              </svg>
+
+              <!-- Logo Container (Focal Point) -->
+              <div class="illustration-logo-box">
+                <div class="logo-box-inner">
+                  <img src="logo.png" alt="COE Official Logo" class="official-logo-img">
+                </div>
+                <div class="logo-box-caption">
+                  <span class="caption-top">CENTER OF EXCELLENCE</span>
+                  <span class="caption-bottom">DIGITAL FORENSIC INTELLIGENCE</span>
+                </div>
+              </div>
+
+              <!-- Cloud -->
+              <div class="illustration-cloud">
+                <svg viewBox="0 0 60 30" class="pixel-svg">
+                  <path d="M10,20 Q15,10 25,10 Q35,10 35,20 Q45,20 45,30 L5,30 Q5,20 10,20 Z" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+                  <rect x="20" y="15" width="10" height="2" fill="#1a5cff"/>
+                </svg>
+              </div>
+              
+              <!-- Laptop -->
+              <div class="illustration-laptop">
+                <svg viewBox="0 0 100 80" class="pixel-svg">
+                  <rect x="15" y="10" width="70" height="45" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+                  <rect x="20" y="15" width="60" height="35" fill="#000000"/>
+                  <rect x="25" y="20" width="20" height="3" fill="#1a5cff"/>
+                  <rect x="25" y="27" width="35" height="3" fill="#1a5cff"/>
+                  <rect x="25" y="34" width="15" height="3" fill="#1a5cff"/>
+                  <rect x="45" y="34" width="20" height="3" fill="#ffffff"/>
+                  <polygon points="5,65 95,65 90,55 10,55" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+                  <line x1="5" y1="65" x2="95" y2="65" stroke="#000000" stroke-width="3"/>
+                  <rect x="42" y="58" width="16" height="4" fill="#1a5cff"/>
+                </svg>
+              </div>
+              
+              <!-- Server -->
+              <div class="illustration-server">
+                <svg viewBox="0 0 60 80" class="pixel-svg">
+                  <rect x="5" y="5" width="50" height="70" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+                  <rect x="10" y="15" width="40" height="12" fill="#000000" stroke="#000000" stroke-width="2"/>
+                  <rect x="10" y="33" width="40" height="12" fill="#000000" stroke="#000000" stroke-width="2"/>
+                  <rect x="10" y="51" width="40" height="12" fill="#000000" stroke="#000000" stroke-width="2"/>
+                  <circle cx="18" cy="21" r="2.5" fill="#1a5cff" class="led-flash"/>
+                  <circle cx="18" cy="39" r="2.5" fill="#1a5cff" class="led-flash" style="animation-delay:.2s"/>
+                  <circle cx="18" cy="57" r="2.5" fill="#1a5cff" class="led-flash" style="animation-delay:.4s"/>
+                  <rect x="28" y="19" width="16" height="4" fill="#ffffff"/>
+                  <rect x="28" y="37" width="16" height="4" fill="#ffffff"/>
+                  <rect x="28" y="55" width="16" height="4" fill="#ffffff"/>
+                </svg>
+              </div>
+
+              <!-- Lock -->
+              <div class="illustration-lock">
+                <svg viewBox="0 0 40 50" class="pixel-svg">
+                  <path d="M10,20 L10,12 A10,10 0 0,1 30,12 L30,20" fill="none" stroke="#000000" stroke-width="3"/>
+                  <rect x="5" y="20" width="30" height="25" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+                  <rect x="18" y="28" width="4" height="8" fill="#1a5cff"/>
+                  <circle cx="20" cy="27" r="3.5" fill="#1a5cff"/>
+                </svg>
+              </div>
+
+              <!-- Shield -->
+              <div class="illustration-shield">
+                <svg viewBox="0 0 40 45" class="pixel-svg">
+                  <path d="M5,5 L35,5 L35,22 Q35,38 20,41 Q5,38 5,22Z" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+                  <path d="M10,10 L30,10 L30,22 Q30,34 20,37 Q10,34 10,22Z" fill="#1a5cff" opacity="0.8"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section gray-bg" id="domains">
+      <div class="section-content">
+        <h2 class="section-title">Specialization Domains</h2>
+        <div class="card-grid three-cols">
+          <div class="card">
+            <div class="pixel-icon">🔒</div>
+            <h3>Cyber Security</h3>
+            <p>Penetration testing, digital forensics, threat intelligence, and secure coding practices.</p>
+          </div>
+          <div class="card">
+            <div class="pixel-icon">🧠</div>
+            <h3>Artificial Intelligence</h3>
+            <p>Machine learning pipelines, computer vision, natural language processing, and neural networks.</p>
+          </div>
+          <div class="card">
+            <div class="pixel-icon">☁️</div>
+            <h3>Cloud Computing</h3>
+            <p>Distributed architectures, serverless systems, devops automation, and container orchestration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="facilities">
+      <div class="section-content">
+        <h2 class="section-title">Facilities &amp; Infrastructure</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Advanced Forensic Lab</h3>
+            <p>Equipped with industry-standard toolkits for malware analysis, write-blockers, and network packet analyzers.</p>
+          </div>
+          <div class="card">
+            <h3>AI Research Cluster</h3>
+            <p>GPU-accelerated servers for training deep learning models and managing high-capacity datasets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gray-bg" id="projects">
+      <div class="section-content">
+        <h2 class="section-title">Student Projects</h2>
+        <div class="card-grid three-cols">
+          <div class="card">
+            <h3>ShieldOS</h3>
+            <p>A custom micro-operating system written in Rust designed specifically for air-gapped forensic operations.</p>
+          </div>
+          <div class="card">
+            <h3>DeepFake Detect</h3>
+            <p>An ensemble model that parses video frames to detect deepfakes with 98.4% validation accuracy.</p>
+          </div>
+          <div class="card">
+            <h3>DecentralCloud</h3>
+            <p>A peer-to-peer storage system utilizing cryptographic proof of storage for secure data sharing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="events">
+      <div class="section-content">
+        <h2 class="section-title">Upcoming Events</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Capture the Flag (CTF)</h3>
+            <p>July 25, 2026. A 24-hour jeopardy-style cyber security competition. Registration opens soon.</p>
+          </div>
+          <div class="card">
+            <h3>AI in Cybersecurity Workshop</h3>
+            <p>August 12, 2026. Guest lecture by industry experts on machine learning applications in intrusion detection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section footer-section" id="contact">
+      <div class="section-content">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="footer-grid">
+          <div class="footer-info">
+            <h3>Sahyadri College of Engineering &amp; Management</h3>
+            <p>Adyar, Mangaluru, Karnataka - 575007</p>
+            <p>Email: coe@sahyadri.edu.in</p>
+          </div>
+          <div class="footer-form">
+            <div class="form-row">
+              <input type="text"  placeholder="Your Name"  class="pixel-input" id="input-name">
+              <input type="email" placeholder="Your Email" class="pixel-input" id="input-email">
+            </div>
+            <textarea placeholder="Your Message" class="pixel-input" rows="4" id="input-message"></textarea>
+            <button class="btn btn-primary" style="align-self:flex-start;margin-top:15px;" id="btn-send">Send Message &rarr;</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Center of Excellence &mdash; Sahyadri College of Engineering &amp; Management. All rights reserved.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
