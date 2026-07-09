@@ -76,7 +76,7 @@ const Navbar = () => {
           visible ? 'translate-y-0' : '-translate-y-full'
         } ${
           scrolled 
-            ? 'glass-panel py-3 shadow-glass border-b border-cyber-cyan/10' 
+            ? 'bg-white border-b-2 border-black py-3 shadow-[0_4px_0_rgba(17,17,17,0.06)]' 
             : 'bg-transparent py-5'
         }`}
       >
@@ -122,7 +122,7 @@ const Navbar = () => {
                 <a
                   href="#contact"
                   onClick={(e) => handleLinkClick(e, '#contact')}
-                  className="interactive px-5 py-2 font-space text-xs font-semibold text-cyber-bg bg-cyber-cyan rounded-full border border-cyber-cyan shadow-neon hover:shadow-neon-strong hover:bg-transparent hover:text-cyber-cyan transition-all duration-300"
+                  className="interactive px-5 py-2 font-space text-xs font-semibold dino-btn-primary dino-btn-primary-hover transition-all duration-300"
                 >
                   Join DFICS
                 </a>
@@ -162,7 +162,7 @@ const Navbar = () => {
               <a
                 href="#contact"
                 onClick={(e) => handleLinkClick(e, '#contact')}
-                className="px-8 py-3 font-space text-sm font-semibold text-cyber-bg bg-cyber-cyan rounded-full shadow-neon hover:shadow-neon-strong block text-center"
+                className="px-8 py-3 font-space text-sm font-semibold dino-btn-primary dino-btn-primary-hover block text-center"
               >
                 Join DFICS
               </a>

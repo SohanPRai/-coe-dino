@@ -18,6 +18,7 @@ import Gallery from './sections/Gallery';
 import Contact from './sections/Contact';
 import Footer from './components/Footer';
 import CyberDino from './components/CyberDino';
+import AmbientLife from './components/AmbientLife';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -54,6 +55,9 @@ function App() {
 
       {/* Vanta.js NET — always underneath, visible once FlickeringGrid fades */}
       <CyberBackground />
+
+      {/* Ambient pixel birds, clouds, meteors, and stars decoration layer */}
+      <AmbientLife />
 
       {/* HexagonPattern — Hero background, fades to Vanta on scroll */}
       <div

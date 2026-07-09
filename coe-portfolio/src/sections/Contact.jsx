@@ -10,13 +10,13 @@ const FloatingInput = ({ label, id, type = 'text', textarea = false }) => {
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState('');
 
-  const labelClass = `absolute left-4 top-1/2 -translate-y-1/2 font-sans text-xs sm:text-sm text-gray-400 transition-all duration-300 pointer-events-none ${
+  const labelClass = `absolute left-4 top-1/2 -translate-y-1/2 font-sans text-xs sm:text-sm text-gray-500 transition-all duration-300 pointer-events-none ${
     focused || value 
       ? 'top-2 text-[10px] sm:text-[10px] text-cyber-cyan font-bold tracking-wider uppercase' 
       : ''
   }`;
 
-  const inputClass = `w-full bg-cyber-darker/60 border border-white/5 focus:border-cyber-cyan/50 rounded-xl px-4 pt-5 pb-2.5 text-xs sm:text-sm text-white focus:outline-none focus:shadow-neon transition-all duration-300 ${
+  const inputClass = `w-full bg-white border-2 border-black focus:border-cyber-cyan px-4 pt-5 pb-2.5 text-xs sm:text-sm text-gray-900 focus:outline-none transition-all duration-200 rounded-none shadow-[2px_2px_0_rgba(37,99,235,0.3)] focus:shadow-[4px_4px_0_rgba(37,99,235,1)] ${
     textarea ? 'h-32 resize-none pt-6' : ''
   }`;
 
@@ -123,8 +123,8 @@ const Contact = () => {
           <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-wider mb-4">
             Secure <span className="text-cyber-cyan text-glow">Incident Reporting</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-purple mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto text-gray-400 font-light text-sm sm:text-base leading-relaxed">
+          <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-blue mx-auto mb-6" />
+          <p className="max-w-2xl mx-auto text-gray-600 font-light text-sm sm:text-base leading-relaxed">
             Dispatch vulnerability inquiries, student research requests, or legal forensic consultation directly to our servers.
           </p>
         </div>
@@ -134,51 +134,51 @@ const Contact = () => {
           
           {/* Left panel - Info & Geolocation SVG Map */}
           <div className="contact-panel lg:col-span-5 flex flex-col justify-between space-y-6">
-            <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/5 space-y-6 h-full flex flex-col justify-between text-left">
+            <div className="dino-panel-light p-6 sm:p-8 rounded-none space-y-6 h-full flex flex-col justify-between text-left">
               <div className="space-y-6">
-                <h3 className="text-lg font-space font-bold uppercase tracking-wider text-white">
+                <h3 className="text-lg font-space font-bold uppercase tracking-wider text-gray-900">
                   CoE Terminals
                 </h3>
 
                 {/* Details list */}
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4">
-                    <div className="p-2.5 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-xl text-cyber-cyan mt-1">
+                    <div className="p-2.5 bg-cyber-cyan/10 border border-cyber-cyan/20 rounded-xl text-cyber-cyan mt-1">
                       <MapPin className="w-4.5 h-4.5" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-mono font-bold text-gray-400 uppercase tracking-widest leading-none mb-1">
+                      <h4 className="text-xs font-mono font-bold text-gray-500 uppercase tracking-widest leading-none mb-1">
                         Location
                       </h4>
-                      <p className="text-gray-300 text-xs sm:text-sm font-light">
+                      <p className="text-gray-700 text-xs sm:text-sm font-light">
                         DFICS CoE, Sahyadri College of Engineering &amp; Management, Adyar, Mangaluru, Karnataka - 575007
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="p-2.5 bg-cyber-purple/10 border border-cyber-purple/30 rounded-xl text-cyber-purple mt-1">
+                    <div className="p-2.5 bg-cyber-cyan/10 border border-cyber-cyan/20 rounded-xl text-cyber-cyan mt-1">
                       <Mail className="w-4.5 h-4.5" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-mono font-bold text-gray-400 uppercase tracking-widest leading-none mb-1">
+                      <h4 className="text-xs font-mono font-bold text-gray-500 uppercase tracking-widest leading-none mb-1">
                         Secured Email
                       </h4>
-                      <p className="text-gray-300 text-xs sm:text-sm font-light font-mono">
+                      <p className="text-gray-700 text-xs sm:text-sm font-light font-mono">
                         dfics@sahyadri.edu.in
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="p-2.5 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-xl text-cyber-cyan mt-1">
+                    <div className="p-2.5 bg-cyber-cyan/10 border border-cyber-cyan/20 rounded-xl text-cyber-cyan mt-1">
                       <Phone className="w-4.5 h-4.5" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-mono font-bold text-gray-400 uppercase tracking-widest leading-none mb-1">
+                      <h4 className="text-xs font-mono font-bold text-gray-500 uppercase tracking-widest leading-none mb-1">
                         Direct Lines
                       </h4>
-                      <p className="text-gray-300 text-xs sm:text-sm font-light font-mono">
+                      <p className="text-gray-700 text-xs sm:text-sm font-light font-mono">
                         +91 824 2277222
                       </p>
                     </div>
@@ -187,7 +187,7 @@ const Contact = () => {
               </div>
 
               {/* Geolocation Interactive Vector Map */}
-              <div className="relative w-full h-44 bg-cyber-darker/60 border border-white/5 rounded-xl overflow-hidden flex items-center justify-center p-4">
+              <div className="relative w-full h-44 bg-cyber-darker border border-gray-200 rounded-xl overflow-hidden flex items-center justify-center p-4">
                 {/* Cyber Grid background */}
                 <div className="absolute inset-0 cyber-grid opacity-15" />
                 
@@ -212,7 +212,7 @@ const Contact = () => {
 
           {/* Right panel - Dynamic Form */}
           <div className="contact-panel lg:col-span-7">
-            <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/5 text-left h-full">
+            <div className="dino-panel-light p-6 sm:p-8 rounded-none text-left h-full">
               <form onSubmit={handleSubmit} className="space-y-5 flex flex-col h-full justify-between">
                 
                 <div className="space-y-5">
@@ -226,7 +226,7 @@ const Contact = () => {
                   <MagneticButton className="w-full">
                     <button
                       type="submit"
-                      className="interactive w-full flex items-center justify-center space-x-2.5 font-space font-bold uppercase tracking-wider py-3.5 px-6 rounded-xl bg-cyber-cyan text-cyber-bg border border-cyber-cyan hover:bg-transparent hover:text-cyber-cyan hover:shadow-neon transition-all duration-300 shadow-neon text-xs sm:text-sm"
+                      className="interactive w-full flex items-center justify-center space-x-2.5 font-space font-bold uppercase tracking-wider py-3.5 px-6 rounded-xl dino-btn-primary dino-btn-primary-hover transition-all duration-300 text-xs sm:text-sm"
                     >
                       <Send className="w-4 h-4" />
                       <span>DISPATCH REPORT</span>

@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
 @import "tailwindcss";
 
 @font-face {
   font-family: 'Karmatic Arcade';
   src: url('./assets/karmatic-arcade.woff2') format('woff2'),
-       url('./assets/karmatic-arcade.ttf') format('truetype');
+    url('./assets/karmatic-arcade.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -46,31 +48,34 @@
 
 @theme {
   /* ── Background & surface ── */
-  --color-cyber-bg:     #ffffff;
-  --color-cyber-navy:   #f0f4ff;
-  --color-cyber-darker: #e8ecf8;
+  --color-cyber-bg: #ffffff;
+  --color-cyber-navy: #f8fafc;
+  --color-cyber-darker: #f1f5f9;
 
   /* ── Brand accent ── */
-  --color-cyber-cyan:   #0066cc;   /* deep blue */
-  --color-cyber-blue:   #3b82f6;
-  --color-cyber-purple: #f97316;   /* orange complement — used as "purple" slot */
+  --color-cyber-cyan: #2563EB;
+  /* Google Blue */
+  --color-cyber-blue: #1d4ed8;
+  /* Deep Blue */
+  --color-cyber-purple: #2563EB;
+  /* Replaced orange with Google Blue */
 
   /* ── Text ── */
-  --color-cyber-light:  #1a1a2e;
+  --color-cyber-light: #111827;
 
-  /* ── Typography — everything monospace ── */
-  --font-space: "Space Mono", "Courier New", monospace;
-  --font-sans:  "Space Mono", "Courier New", monospace;
+  /* ── Typography — everything monospace / pixel ── */
+  --font-space: "Pixelify Sans", "Space Mono", monospace;
+  --font-sans: "Space Mono", "Courier New", monospace;
 
   /* ── Shadows ── */
-  --shadow-neon:        7px 7px 0 #0066cc;
-  --shadow-neon-strong: 9px 9px 0 #f97316;
-  --shadow-neon-purple: 7px 7px 0 #f97316;
-  --shadow-glass:       7px 7px 0 #0066cc;
+  --shadow-neon: 6px 6px 0 #2563EB;
+  --shadow-neon-strong: 6px 6px 0 #111111;
+  --shadow-neon-purple: 6px 6px 0 #2563EB;
+  --shadow-glass: 6px 6px 0 #2563EB;
 
   /* ── Gradients ── */
-  --background-image-cyber-gradient: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
-  --background-image-glow-gradient:  radial-gradient(circle at center, rgba(0,102,204,0.10) 0%, transparent 70%);
+  --background-image-cyber-gradient: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  --background-image-glow-gradient: radial-gradient(circle at center, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
 
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -81,43 +86,50 @@ body {
   color: #1a1a2e;
   font-family: "Space Mono", "Courier New", monospace;
   background-image:
-    radial-gradient(circle at 10% 20%, rgba(0,102,204,0.04) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(249,115,22,0.04) 0%, transparent 40%);
+    radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 40%);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Karmatic Arcade', "Space Mono", "Courier New", monospace !important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Pixelify Sans", "Space Mono", monospace;
   @apply font-bold tracking-tight;
-  color: #0a0a1a;
+  color: #111827;
 }
 
 /* ── Glass panel ── */
 @utility glass-panel {
-  background: #1F2937;
-  border: 1px solid #1e1e1e;
-  box-shadow: 7px 7px 0 #0066cc;
+  border-style: solid;
+  border-width: 3px;
+  border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12'><path d='M3 0h6v3H3zm6 3h3v6h-3zm-6 6v3h6v-3zM0 3h3v6H0z' fill='%232563EB'/></svg>") 3 repeat;
+  background-color: #111111;
+  box-shadow: 6px 6px 0 #2563EB;
+  transition: all 0.2s ease-in-out;
 }
 
 /* Text inside glass panels — force requested color and ChunkFive font */
 .glass-panel,
 .glass-panel *,
-.glass-panel h1, .glass-panel h2,
-.glass-panel h3, .glass-panel h4,
-.glass-panel h5, .glass-panel h6,
-.glass-panel p,
-.glass-panel li,
-.glass-panel span,
-.glass-panel a,
-.glass-panel div,
-.glass-panel small {
-  color: #10B981 !important;
-  font-family: 'ChunkFive', "Space Mono", "Courier New", monospace !important;
+.glass-panel h1,
+.glass-panel h2,
+.glass-panel h3,
+.glass-panel h4,
+.glass-panel h5,
+.glass-panel h6 {
+  color: #ffffff !important;
 }
 
 /* Scale down text elements inside glass panels to 0.9 times the original size */
-.glass-panel h1, .glass-panel h2,
-.glass-panel h3, .glass-panel h4,
-.glass-panel h5, .glass-panel h6,
+.glass-panel h1,
+.glass-panel h2,
+.glass-panel h3,
+.glass-panel h4,
+.glass-panel h5,
+.glass-panel h6,
 .glass-panel p,
 .glass-panel li,
 .glass-panel a,
@@ -132,18 +144,140 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Glass panel hover ───────────────────────────── */
 @utility glass-panel-hover {
   transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+
   &:hover {
-    box-shadow: 9px 9px 0 #f97316;
+    box-shadow: 8px 8px 0 #2563EB;
     transform: translate(-2px, -2px);
-    border-color: #2a2a2a;
+  }
+}
+
+/* ── Dino Stepped Panels ─────────────────────────── */
+@utility dino-panel-light {
+  border-style: solid;
+  border-width: 3px;
+  border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12'><path d='M3 0h6v3H3zm6 3h3v6h-3zm-6 6v3h6v-3zM0 3h3v6H0z' fill='%23111111'/></svg>") 3 repeat;
+  background-color: #ffffff;
+  background-image: radial-gradient(rgba(17, 17, 17, 0.015) 1px, transparent 1px);
+  background-size: 8px 8px;
+  box-shadow: 6px 6px 0 #2563EB;
+  transition: all 0.2s ease-in-out;
+}
+
+.dino-panel-light h1,
+.dino-panel-light h2,
+.dino-panel-light h3,
+.dino-panel-light h4,
+.dino-panel-light h5,
+.dino-panel-light h6 {
+  color: #111827 !important;
+}
+
+.dino-panel-light p,
+.dino-panel-light li {
+  color: #374151 !important;
+}
+
+@utility dino-panel-light-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #f8fafc;
+    box-shadow: 8px 8px 0 #2563EB;
+    transform: translate(-2px, -2px);
+  }
+}
+
+@utility dino-panel-dark {
+  border-style: solid;
+  border-width: 3px;
+  border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12'><path d='M3 0h6v3H3zm6 3h3v6h-3zm-6 6v3h6v-3zM0 3h3v6H0z' fill='%232563EB'/></svg>") 3 repeat;
+  background-color: #111111;
+  box-shadow: 6px 6px 0 #2563EB;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+
+.dino-panel-dark h1,
+.dino-panel-dark h2,
+.dino-panel-dark h3,
+.dino-panel-dark h4,
+.dino-panel-dark h5,
+.dino-panel-dark h6 {
+  color: #ffffff !important;
+}
+
+.dino-panel-dark p,
+.dino-panel-dark li {
+  color: #9ca3af !important;
+}
+
+@utility dino-panel-dark-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 8px 8px 0 #2563EB;
+    transform: translate(-2px, -2px);
+  }
+}
+
+/* ── Dino Buttons ───────────────────────────────── */
+@utility dino-btn-primary {
+  font-family: var(--font-space);
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #2563EB;
+  color: #ffffff !important;
+  border: 2px solid #111111;
+  box-shadow: 4px 4px 0 #111111;
+  transition: all 0.15s ease-in-out;
+  border-radius: 0px;
+}
+
+@utility dino-btn-primary-hover {
+  &:hover {
+    background-color: #1d4ed8;
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0 #111111;
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #111111;
+  }
+}
+
+@utility dino-btn-secondary {
+  font-family: var(--font-space);
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  color: #111827 !important;
+  border: 2px solid #111111;
+  box-shadow: 4px 4px 0 #2563EB;
+  transition: all 0.15s ease-in-out;
+  border-radius: 0px;
+}
+
+@utility dino-btn-secondary-hover {
+  &:hover {
+    background-color: #f8fafc;
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0 #2563EB;
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #2563EB;
   }
 }
 
 /* ── Noise overlay ────────────────────────────────── */
 @utility cyber-noise {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   content: "";
   opacity: 0.015;
   pointer-events: none;
@@ -155,12 +289,12 @@ h1, h2, h3, h4, h5, h6 {
 @utility cyber-grid {
   background-size: 40px 40px;
   background-image:
-    linear-gradient(to right, rgba(0,102,204,0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0,102,204,0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 102, 204, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 102, 204, 0.06) 1px, transparent 1px);
 }
 
 @utility hex-grid {
-  background-image: radial-gradient(rgba(0,102,204,0.12) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 102, 204, 0.12) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -179,18 +313,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Timeline accent ──────────────────────────────── */
 @utility timeline-line {
-  background: linear-gradient(
-    to bottom,
-    rgba(0,102,204,0)   0%,
-    rgba(0,102,204,1)  15%,
-    rgba(249,115,22,1) 85%,
-    rgba(249,115,22,0) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(37, 99, 235, 0) 0%,
+      rgba(37, 99, 235, 1) 15%,
+      rgba(17, 17, 17, 1) 85%,
+      rgba(17, 17, 17, 0) 100%);
 }
 
 /* ── Custom cursor ────────────────────────────────── */
 @utility custom-cursor {
-  width: 20px; height: 20px;
+  width: 20px;
+  height: 20px;
   border: 1px solid rgba(0, 102, 204, 0.8);
   border-radius: 50%;
   position: fixed;
@@ -201,7 +334,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @utility custom-cursor-dot {
-  width: 4px; height: 4px;
+  width: 4px;
+  height: 4px;
   background-color: #0066cc;
   border-radius: 50%;
   position: fixed;
@@ -211,29 +345,47 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ── Scrollbar ────────────────────────────────────── */
-::-webkit-scrollbar        { width: 8px; }
-::-webkit-scrollbar-track  { background: #f0f4ff; }
-::-webkit-scrollbar-thumb  {
-  background: rgba(0, 102, 204, 0.25);
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.25);
   border-radius: 0;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(249, 115, 22, 0.6);
+  background: rgba(37, 99, 235, 0.6);
 }
 
 /* ── Section borders ──────────────────────────────── */
 section {
-  border-color: rgba(0, 102, 204, 0.08) !important;
+  border-color: rgba(37, 99, 235, 0.08) !important;
 }
 
 /* ── Marquee ──────────────────────────────────────── */
 @keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
+
 @keyframes marquee-scroll-reverse {
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 .marquee-outer {
@@ -263,27 +415,20 @@ section {
   padding-right: 1rem;
 }
 
-/* ── Inside glass-panel: force 10B981 on accent spans ── */
+/* ── Inside glass-panel: force blue on accent spans ── */
 .glass-panel .text-cyber-cyan,
 .glass-panel .text-cyber-purple,
 .glass-panel .text-glow {
-  color: #10B981 !important;
+  color: #2563EB !important;
   text-shadow: none;
 }
+
 .glass-panel .bg-cyber-cyan\/10,
 .glass-panel .bg-white\/5 {
-  background: rgba(16,185,129,0.08) !important;
+  background: rgba(37, 99, 235, 0.08) !important;
 }
+
 .glass-panel .border-cyber-cyan\/20,
 .glass-panel .border-white\/10 {
-  border-color: rgba(16,185,129,0.2) !important;
+  border-color: #2563EB !important;
 }
-
-/* ── Navbar Typography Override ── */
-nav,
-nav * {
-  font-family: 'Cyberform Demo', sans-serif !important;
-}
-
-
-

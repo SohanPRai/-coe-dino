@@ -51,12 +51,15 @@ const About = () => {
       // Info Cards Animation
       gsap.fromTo(
         '.about-card',
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 30, scale: 0.96, boxShadow: '0px 0px 0 #2563EB' },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.2,
+          scale: 1,
+          boxShadow: '6px 6px 0 #2563EB',
+          duration: 0.7,
+          stagger: 0.18,
+          ease: 'back.out(1.4)',
           scrollTrigger: {
             trigger: '.about-cards-container',
             start: 'top 80%',
@@ -78,7 +81,7 @@ const About = () => {
           },
         });
 
-        tl.fromTo(node, { scale: 0, backgroundColor: 'rgba(0, 229, 255, 0)' }, { scale: 1, backgroundColor: 'rgba(0, 229, 255, 1)', duration: 0.4 })
+        tl.fromTo(node, { scale: 0, backgroundColor: 'rgba(37, 99, 235, 0)' }, { scale: 1, backgroundColor: 'rgba(37, 99, 235, 1)', duration: 0.4 })
           .fromTo(line, { scaleY: 0 }, { scaleY: 1, transformOrigin: 'top', duration: 0.5 }, '-=0.1')
           .fromTo(content, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.5 }, '-=0.3');
       });
@@ -114,15 +117,21 @@ const About = () => {
           {/* Left Column - Core Statements (Mission, Vision, Objectives) */}
           <div className="lg:col-span-6 space-y-6 about-cards-container">
             {/* Mission */}
-            <div className="about-card glass-panel glass-panel-hover p-6 rounded-2xl relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-1 h-full bg-cyber-cyan" />
+            <div className="about-card dino-panel-light dino-panel-light-hover p-6 rounded-none relative overflow-hidden group">
+              {/* Faded Background Index */}
+              <div className="absolute right-6 top-2 text-8xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
+                01
+              </div>
+              <div className="absolute top-0 left-0 w-[3px] h-full bg-cyber-cyan" />
               <div className="flex items-start space-x-4">
-                <div className="p-3 bg-cyber-cyan/10 rounded-xl border border-cyber-cyan/30 text-cyber-cyan group-hover:scale-110 transition-transform duration-300">
-                  <Target className="w-6 h-6" />
-                </div>
                 <div>
-                  <h3 className="text-lg font-space font-bold uppercase tracking-wider text-cyber-light mb-2">Our Mission</h3>
-                  <p className="text-gray-600 text-sm font-light leading-relaxed">
+                  <h3 className="text-lg font-space font-bold uppercase tracking-wider text-gray-900 mb-2 flex items-center gap-2">
+                    <span>□</span> OUR MISSION <span className="text-xl">🦖</span>
+                  </h3>
+                  <p className="font-space font-bold text-cyber-cyan text-sm mb-3">
+                    "We build future cyber defenders."
+                  </p>
+                  <p className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed">
                     To pioneer cutting-edge cyber-forensics research and deploy industry-grade defense strategies, equipping scholars with high-performance operational intelligence.
                   </p>
                 </div>
@@ -130,15 +139,21 @@ const About = () => {
             </div>
 
             {/* Vision */}
-            <div className="about-card glass-panel glass-panel-hover p-6 rounded-2xl relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-1 h-full bg-cyber-purple" />
+            <div className="about-card dino-panel-light dino-panel-light-hover p-6 rounded-none relative overflow-hidden group translate-x-[4%] md:translate-x-[6%]">
+              {/* Faded Background Index */}
+              <div className="absolute right-6 top-2 text-8xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
+                02
+              </div>
+              <div className="absolute top-0 left-0 w-[3px] h-full bg-cyber-cyan" />
               <div className="flex items-start space-x-4">
-                <div className="p-3 bg-cyber-purple/10 rounded-xl border border-cyber-purple/30 text-cyber-purple group-hover:scale-110 transition-transform duration-300">
-                  <Eye className="w-6 h-6" />
-                </div>
                 <div>
-                  <h3 className="text-lg font-space font-bold uppercase tracking-wider text-cyber-light mb-2">Our Vision</h3>
-                  <p className="text-gray-600 text-sm font-light leading-relaxed">
+                  <h3 className="text-lg font-space font-bold uppercase tracking-wider text-gray-900 mb-2 flex items-center gap-2">
+                    <span>□</span> OUR VISION <span className="text-xl">☁</span>
+                  </h3>
+                  <p className="font-space font-bold text-cyber-cyan text-sm mb-3">
+                    "Securing digital horizons through ethical innovations."
+                  </p>
+                  <p className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed">
                     To build a globally recognized, resilient cyber research eco-system fostering ethical innovation, forensic mastery, and high-impact digital intelligence defense.
                   </p>
                 </div>
@@ -146,15 +161,21 @@ const About = () => {
             </div>
 
             {/* Objectives */}
-            <div className="about-card glass-panel glass-panel-hover p-6 rounded-2xl relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-1 h-full bg-cyber-cyan" />
+            <div className="about-card dino-panel-light dino-panel-light-hover p-6 rounded-none relative overflow-hidden group translate-x-[2%] md:translate-x-[3%]">
+              {/* Faded Background Index */}
+              <div className="absolute right-6 top-2 text-8xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
+                03
+              </div>
+              <div className="absolute top-0 left-0 w-[3px] h-full bg-cyber-cyan" />
               <div className="flex items-start space-x-4">
-                <div className="p-3 bg-cyber-cyan/10 rounded-xl border border-cyber-cyan/30 text-cyber-cyan group-hover:scale-110 transition-transform duration-300">
-                  <Award className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-space font-bold uppercase tracking-wider text-cyber-light mb-2">Key Objectives</h3>
-                  <ul className="text-gray-600 text-sm font-light leading-relaxed space-y-2 mt-1">
+                <div className="w-full">
+                  <h3 className="text-lg font-space font-bold uppercase tracking-wider text-gray-900 mb-2 flex items-center gap-2">
+                    <span>□</span> KEY OBJECTIVES <span className="text-xl">🌵</span>
+                  </h3>
+                  <p className="font-space font-bold text-cyber-cyan text-sm mb-3">
+                    "Collaborating with elite institutions to solve real exploits."
+                  </p>
+                  <ul className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed space-y-2 mt-1">
                     <li className="flex items-center space-x-2">
                       <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan" />
                       <span>Deliver hands-on offensive &amp; defensive training programs.</span>
@@ -177,34 +198,62 @@ const About = () => {
           <div className="lg:col-span-6">
             <h3 className="text-xl font-space font-bold uppercase tracking-wider text-cyber-light mb-8 inline-flex items-center space-x-2.5">
               <Calendar className="w-5 h-5 text-cyber-cyan" />
-              <span>Milestones &amp; Journey</span>
+              <span>Milestones &amp; Journey <span className="text-xl ml-1">🐦</span></span>
             </h3>
 
             {/* Timeline wrapper */}
-            <div className="relative pl-8 space-y-8">
-              {/* Timeline center line */}
-              <div className="absolute left-[11px] top-2 bottom-2 w-[2px] timeline-line" />
+            <div className="relative pl-12 space-y-8">
+              {/* Timeline vertical axis (pixel cable) */}
+              <div className="absolute left-[15px] top-2 bottom-2 w-[3px] bg-black" />
 
               {milestones.map((m, idx) => (
-                <div key={idx} className="timeline-item relative flex items-start">
-                  {/* Glowing Node Point */}
-                  <div className="timeline-node absolute left-[-26px] top-1.5 w-[14px] h-[14px] rounded-full border-2 border-cyber-bg shadow-neon z-10 transition-colors" />
+                <div key={idx} className="timeline-item relative flex flex-col sm:flex-row sm:items-center text-left">
+                  {/* Horizontal connector line */}
+                  <div className="absolute left-[-32px] top-[15px] w-8 h-[3px] bg-black hidden sm:block" />
                   
-                  {/* Hidden element to trigger line length expansion */}
-                  <div className="timeline-indicator-line absolute left-[-21px] top-[14px] h-full w-[2px] scale-y-0" />
+                  {/* Node point (pixel node) */}
+                  <div className="absolute left-[-35px] top-[12px] w-[9px] h-[9px] bg-cyber-cyan border border-black z-10 hidden sm:block" />
 
-                  {/* Content Container */}
-                  <div className="timeline-content ml-4 glass-panel p-5 rounded-2xl w-full border border-white/5 hover:border-cyber-cyan/20 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-space font-bold text-cyber-light text-base">{m.title}</h4>
-                      <span className="font-mono text-xs font-bold text-cyber-cyan bg-cyber-cyan/10 px-2 py-0.5 rounded border border-cyber-cyan/20">
-                        {m.year}
-                      </span>
+                  {/* Year badge */}
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0 px-3 py-1 font-space font-bold text-xs bg-white border-2 border-black shadow-[2px_2px_0_#2563EB] text-gray-900 rounded-none">
+                      {m.year}
                     </div>
-                    <p className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed">{m.desc}</p>
+                    <h4 className="font-space font-bold text-gray-900 text-base">{m.title}</h4>
                   </div>
+                  <p className="text-gray-600 text-xs sm:text-sm font-light mt-2 sm:mt-0 sm:ml-6 leading-relaxed max-w-lg">
+                    {m.desc}
+                  </p>
                 </div>
               ))}
+
+              {/* LEVEL CLEARED Checkpoint at the bottom of the timeline */}
+              <div className="timeline-item relative flex items-center pt-4">
+                <div className="absolute left-[-32px] top-[40px] w-8 h-[3px] bg-black hidden sm:block" />
+                <div className="absolute left-[-35px] top-[37px] w-[9px] h-[9px] bg-cyber-cyan border border-black z-10 hidden sm:block" />
+                
+                <div className="dino-panel-light p-5 w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div className="flex items-center space-x-3 text-left">
+                    <span className="text-2xl">🏁</span>
+                    <div>
+                      <h4 className="font-space font-extrabold text-sm uppercase text-gray-900 leading-none">LEVEL 01 CLEARED</h4>
+                      <span className="text-[10px] text-gray-500 font-mono tracking-wider uppercase mt-1 inline-block">NEXT CHAPTER: DOMAINS & RESEARCH</span>
+                    </div>
+                  </div>
+                  <a
+                    href="#domains"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.querySelector('#domains')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="interactive px-4 py-2 font-space text-xs font-bold dino-btn-primary dino-btn-primary-hover flex items-center justify-center space-x-1.5 w-fit"
+                  >
+                    <span>CONTINUE</span>
+                    <span>→</span>
+                  </a>
+                </div>
+              </div>
+
             </div>
           </div>
           

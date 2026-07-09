@@ -117,45 +117,55 @@ const Team = () => {
           <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-wider mb-4">
             Meet the <span className="text-cyber-cyan text-glow">Cyber Security Team</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-purple mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto text-gray-400 font-light text-sm sm:text-base leading-relaxed">
+          <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-blue mx-auto mb-6" />
+          <p className="max-w-2xl mx-auto text-gray-600 font-light text-sm sm:text-base leading-relaxed">
             Led by experienced faculty supervisors and offensive security students, driving advanced forensic investigations.
           </p>
         </div>
 
         {/* Team Grid */}
         <div className="team-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {members.map((member, idx) => (
-            <div
-              key={idx}
-              className="team-member-card glass-panel p-8 rounded-2xl border border-white/5 hover:border-cyber-cyan/30 hover:shadow-neon transition-all duration-300 text-center relative group"
-            >
-              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyber-cyan to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              {/* Circular Avatar */}
-              <div className="mb-6 relative">
-                {renderAvatar(member.seed)}
-              </div>
+          {members.map((member, idx) => {
+            const offsets = [
+              'lg:translate-y-0',
+              'lg:translate-y-4',
+              'lg:-translate-y-2',
+              'lg:translate-y-2'
+            ];
+            return (
+              <div
+                key={idx}
+                className={`team-member-card dino-panel-light dino-panel-light-hover p-8 rounded-none text-center relative group ${offsets[idx] || ''}`}
+              >
+                {/* Faded Background Index */}
+                <div className="absolute right-6 top-2 text-8xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
+                  {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                </div>
 
-              {/* Name & Role */}
-              <h3 className="text-lg font-space font-bold uppercase tracking-wider text-white mb-1 group-hover:text-cyber-cyan transition-colors">
-                {member.name}
-              </h3>
-              <p className="text-xs font-mono font-bold text-cyber-purple tracking-widest uppercase mb-4">
-                {member.role}
-              </p>
+                {/* Circular Avatar */}
+                <div className="mb-6 relative">
+                  {renderAvatar(member.seed)}
+                </div>
+
+                {/* Name & Role */}
+                <h3 className="text-lg font-space font-bold uppercase tracking-wider text-gray-900 mb-1 group-hover:text-cyber-cyan transition-colors">
+                  □ {member.name}
+                </h3>
+                <p className="text-xs font-mono font-bold text-cyber-cyan tracking-widest uppercase mb-4">
+                  {member.role}
+                </p>
 
               {/* Profile Description */}
-              <p className="text-gray-400 text-xs font-light leading-relaxed mb-6">
+              <p className="text-gray-600 text-xs font-light leading-relaxed mb-6">
                 {member.desc}
               </p>
 
               {/* Hover-reveal Social Icons */}
-              <div className="flex items-center justify-center space-x-4 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex items-center justify-center space-x-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
                 {member.social.linkedin && (
                   <a
                     href={member.social.linkedin}
-                    className="interactive p-2 rounded-lg bg-white/5 hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-white/10 hover:border-cyber-cyan/30 transition-all"
+                    className="interactive p-2 rounded-lg bg-cyber-navy hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-gray-200 hover:border-cyber-cyan/30 text-gray-700 transition-all"
                   >
                     <Linkedin className="w-4 h-4" />
                   </a>
@@ -163,7 +173,7 @@ const Team = () => {
                 {member.social.github && (
                   <a
                     href={member.social.github}
-                    className="interactive p-2 rounded-lg bg-white/5 hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-white/10 hover:border-cyber-cyan/30 transition-all"
+                    className="interactive p-2 rounded-lg bg-cyber-navy hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-gray-200 hover:border-cyber-cyan/30 text-gray-700 transition-all"
                   >
                     <Github className="w-4 h-4" />
                   </a>
@@ -171,7 +181,7 @@ const Team = () => {
                 {member.social.twitter && (
                   <a
                     href={member.social.twitter}
-                    className="interactive p-2 rounded-lg bg-white/5 hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-white/10 hover:border-cyber-cyan/30 transition-all"
+                    className="interactive p-2 rounded-lg bg-cyber-navy hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-gray-200 hover:border-cyber-cyan/30 text-gray-700 transition-all"
                   >
                     <Twitter className="w-4 h-4" />
                   </a>
@@ -179,7 +189,7 @@ const Team = () => {
                 {member.social.mail && (
                   <a
                     href={member.social.mail}
-                    className="interactive p-2 rounded-lg bg-white/5 hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-white/10 hover:border-cyber-cyan/30 transition-all"
+                    className="interactive p-2 rounded-lg bg-cyber-navy hover:bg-cyber-cyan/15 hover:text-cyber-cyan border border-gray-200 hover:border-cyber-cyan/30 text-gray-700 transition-all"
                   >
                     <Mail className="w-4 h-4" />
                   </a>
@@ -187,7 +197,7 @@ const Team = () => {
               </div>
 
             </div>
-          ))}
+          );})}
         </div>
 
       </div>
