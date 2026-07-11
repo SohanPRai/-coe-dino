@@ -32,7 +32,7 @@ const Team = () => {
           name: 'Dr.Manjunath Bhandary',
           desc: 'Chairman, SCEM',
           image: chairmanImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: 'mailto:chairman@example.com' },
+          social: { linkedin: 'https://www.linkedin.com/in/manjunathbhandary/', twitter: 'https://x.com/Manju_Bhandary?s=20' },
           seed: 'chairman-1'
         }
       ]
@@ -45,21 +45,21 @@ const Team = () => {
           name: 'Mr.Johnson Tellis',
           desc: 'CEO, Bhandary Foundation.',
           image: ceoImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/johnson-tellis-52171554/', twitter: 'https://x.com/jtjohnsontellis?s=20' },
           seed: 'advisor-1'
         },
         {
           name: 'Dr. Manjappa Sarathi',
           desc: 'Director R&D, SCEM',
           image: directorImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/sarathi-manjappa-a1833199/' },
           seed: 'advisor-2'
         },
         {
           name: 'Dr. S S Injaganeri',
           desc: 'Principal, SCEM',
           image: principalImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/sidramappa-injaganeri-2a85b934/' },
           seed: 'advisor-3'
         }
       ]
@@ -72,7 +72,7 @@ const Team = () => {
           name: 'Dr. Mustafa Basthikodi',
           desc: 'HOD, Dept of CSE, SCEM',
           image: hodImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/dr-mustafa-basthikodi-3b644442/', twitter: 'https://x.com/mbasthik?s=20' },
           seed: 'mentor-1'
         }
       ]
@@ -82,17 +82,17 @@ const Team = () => {
       title: 'Principal Investigators',
       members: [
         {
-          name: 'Dr. Ananth Kumar',
+          name: 'Dr. Ananth Prabhu',
           desc: 'Principal Investigator',
           image: ananthImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: 'mailto:ananth@example.com' },
+          social: { mail: 'mailto:ananth@example.com' },
           seed: 'pi-1'
         },
         {
           name: 'Mr. Harisha',
           desc: 'Co-Principal Investigator',
           image: harishaImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/harisha123/' },
           seed: 'pi-2'
         }
       ]
@@ -104,25 +104,25 @@ const Team = () => {
         {
           name: 'Mr. Harisha',
           image: harishaImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/harisha123/' },
           seed: 'faculty-1'
         },
         {
           name: 'Mrs. Vidya VV',
           image: vidyavvImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { mail: 'mailto:vidyavv@example.com' },
           seed: 'faculty-2'
         },
         {
           name: 'Ms. Alakananda',
           image: alakanandaImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/alakananda-k-75973515b/' },
           seed: 'faculty-3'
         },
         {
           name: 'Prof. Srinivas P M',
           image: srinivasImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/prof-srinivas-p-m-8183b6223/' },
           seed: 'faculty-4'
         }
       ]
@@ -135,14 +135,14 @@ const Team = () => {
           name: 'Likith U Salian',
           desc: 'M.Sc in Cyber Security',
           image: likithImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { mail: '#' },
           seed: 'resource-1'
         },
         {
           name: 'Adish Yermal',
           desc: 'Engineer at Tata Elxsi',
           image: adishImg,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/adish-yermal/' },
           seed: 'resource-2'
         }
       ]

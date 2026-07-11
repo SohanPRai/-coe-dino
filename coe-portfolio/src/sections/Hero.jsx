@@ -216,22 +216,23 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left Column - Content */}
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full text-cyber-cyan text-xs font-mono font-medium tracking-wider mb-6 w-fit animate-pulse-slow shadow-neon ml-30">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full text-cyber-cyan text-xs font-mono font-medium tracking-wider mb-6 w-fit animate-pulse-slow shadow-neon lg:ml-30 ml-0">
             <Cpu className="w-3.5 h-3.5" />
             <span>SECURE. DETECT. DEFEND.</span>
           </div>
 
           <h1
             ref={titleRef}
-            className="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-cyber-light mb-6 -ml-35 uppercase leading-[1.1] perspective-[1000px]"
+            className="text-2xl sm:text-3xl md:text-5xl xl:text-5xl font-extrabold tracking-tight text-cyber-light mb-6 lg:-ml-30 uppercase leading-[1.1] perspective-[1000px]"
           >
-            <div className="title-line overflow-hidden origin-bottom mb-2 -ml-8">Building the Future</div>
-            <div className="title-line overflow-hidden origin-bottom mb-2">
-              of <span className="text-cyber-cyan text-glow mb-2">Cyber Security</span>
+            <div className="title-line overflow-hidden origin-bottom mb-2 ml-4">Building the Future</div>
+            <div className="title-line overflow-hidden origin-bottom mb-2 ml-6 lg:ml-10">
+              of <span className="text-cyber-cyan text-glow mb-4">Cyber Security </span>
+              <div className="lg:ml-55 ml-28 lg:mt-2 mt-2">and</div>
             </div>
-            <div className="title-line overflow-hidden origin-bottom -ml-11 mb-2">&amp; Digital Forensics</div>
+            <div className="title-line overflow-hidden origin-bottom lg:ml-4 ml-4 mb-2">&amp;Digital Forensics</div>
           </h1>
-          <div className="-ml-20" >
+          <div className="lg:-ml-20 ml-0" >
             <p id="home-scramble-original" className="sr-only">
               Empowering students, researchers, and industry professionals through state-of-the-art innovation, applied research, cyber defense protocols, ethical hacking, and advanced digital investigations.
             </p>
@@ -239,7 +240,7 @@ const Hero = () => {
           <p
             ref={subtitleRef}
             onClick={() => scrambleTimelineRef.current && scrambleTimelineRef.current.play(0)}
-            className="text-gray-600 text-sm sm:text-base xl:text-lg mb-8 max-w-xl font-light leading-relaxed cursor-pointer select-none min-h-[7em] sm:min-h-[5.5em] md:min-h-[4.5em] -ml-20"
+            className="text-gray-600 text-sm sm:text-base xl:text-lg mb-8 max-w-xl font-light leading-relaxed cursor-pointer select-none min-h-[7em] sm:min-h-[5.5em] md:min-h-[4.5em] lg:-ml-20 ml-0"
             title="Click to replay scramble effect"
           >
             <span id="home-scramble-1"></span>
@@ -278,7 +279,7 @@ const Hero = () => {
         {/* Right Column - Premium Holographic Vector SVG Illustration */}
         <div
           ref={graphicRef}
-          className="lg:col-span-5 flex justify-center items-center relative aspect-square w-full max-w-[480px] mx-auto lg:max-w-none"
+          className="lg:col-span-5 flex justify-center items-center relative aspect-square w-full max-w-[480px] mx-auto lg:max-w-none lg:ml-25"
         >
           {/* Neon Radial Gradient Glow */}
           <div className="absolute inset-0 bg-cyber-cyan/5 blur-[80px] rounded-full animate-pulse-slow -z-10" />
@@ -345,11 +346,11 @@ const Hero = () => {
 
           {/* Central Hologram Logo - Floating inside the SVG frame */}
           <div className="hero-shield absolute flex items-center justify-center pointer-events-none">
-            <img src={coeLogo} alt="CoE Logo" className="w-[250px] h-[250px] object-contain animate-pulse-slow z-10 filter drop-shadow-[0_0_15px_rgba(0,102,204,0.2)]" />
+            <img src={coeLogo} alt="CoE Logo" className="w-[180px] h-[180px] sm:w-[250px] sm:h-[250px] object-contain animate-pulse-slow z-10 filter drop-shadow-[0_0_15px_rgba(0,102,204,0.2)]" />
           </div>
 
           {/* Floating Data Card 1 */}
-          <div className="float-card absolute top-[12%] right-[2%] glass-panel border border-cyber-cyan/30 px-3 py-2 rounded-xl flex items-center space-x-2.5 shadow-neon pointer-events-none">
+          <div className="float-card hidden sm:flex absolute top-[12%] right-[2%] glass-panel border border-cyber-cyan/30 px-3 py-2 rounded-xl items-center space-x-2.5 shadow-neon pointer-events-none">
             <div className="p-1.5 bg-cyber-cyan/10 rounded-lg">
               <Terminal className="w-4 h-4 text-cyber-cyan" />
             </div>
@@ -360,7 +361,7 @@ const Hero = () => {
           </div>
 
           {/* Floating Data Card 2 */}
-          <div className="float-card absolute bottom-[18%] left-[2%] glass-panel border border-cyber-purple/30 px-3 py-2 rounded-xl flex items-center space-x-2.5 shadow-glass pointer-events-none">
+          <div className="float-card hidden sm:flex absolute bottom-[18%] left-[2%] glass-panel border border-cyber-purple/30 px-3 py-2 rounded-xl items-center space-x-2.5 shadow-glass pointer-events-none">
             <div className="p-1.5 bg-cyber-purple/10 rounded-lg">
               <Cpu className="w-4 h-4 text-cyber-purple" />
             </div>
