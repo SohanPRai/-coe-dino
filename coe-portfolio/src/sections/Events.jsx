@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Trophy, Shield, Key, Presentation, Users, Video } from 'lucide-react';
+import { Trophy, Presentation, Video } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -10,52 +10,28 @@ const Events = () => {
 
   const events = [
     {
-      title: 'Sahyadri Cyber-Strike Hackathon',
-      date: 'September 12 - 14, 2026',
+      title: 'Three-Day Hackathon on Ethical Hacking',
+      date: 'June 13 - 15, 2022',
       type: 'Hackathon',
-      desc: 'A 36-hour physical security sprint where developers build mitigation plugins, firmware auditors, and automated scanning modules.',
+      desc: 'A three-day physical hackathon organized by CoE Digital Forensics Intelligence, Sahyadri College of Engineering and Management, supported by AICTE SPICE. Mentored by Cybersapiens United LLP Mangaluru, the event saw active participation from engineering students with nearly 40 students benefiting.',
       icon: Trophy,
       color: 'text-cyan-400 bg-cyan-400/10 border-cyan-400/30',
     },
     {
-      title: 'DFICS RootCTF Conquest',
-      date: 'November 08, 2026',
-      type: 'Capture The Flag',
-      desc: 'Jeopardy-style capture-the-flag tournament testing memory dumps, reverse malware extraction, binary buffer overflows, and cryptography.',
-      icon: Shield,
+      title: 'Two-Day Online Workshop on Cyber Security',
+      date: 'October 30 - 31, 2021',
+      type: 'Workshop',
+      desc: 'A two-day online workshop with a vision of capacity building in the cybersecurity domain, organized by the Centre of Excellence Digital Forensics Intelligence and Cyber Security.',
+      icon: Video,
       color: 'text-purple-400 bg-purple-400/10 border-purple-400/30',
     },
     {
-      title: 'Reverse Engineering Lab Workshop',
-      date: 'December 18, 2026',
-      type: 'Workshop',
-      desc: 'Hands-on hardware disassembly session, connecting logic analyzers to extract boot codes and auditing micro-controller interfaces.',
-      icon: Key,
-      color: 'text-blue-400 bg-blue-400/10 border-blue-400/30',
-    },
-    {
-      title: 'Industrial Incident Briefings',
-      date: 'January 22, 2027',
-      type: 'Guest Lectures',
-      desc: 'Industry consultants breakdown corporate forensic analysis cases and operational defense strategies during active intrusion.',
+      title: 'One-Day SDP: Exploring Cyber Security Frontiers',
+      date: 'June 18, 2022',
+      type: 'Student Development Programme',
+      desc: 'A student development programme organized by the Department of CSE in collaboration with CoE. Featured Mr. Sudharshan P from Incognito Forensics Foundation (IFFLAB) as the resource person, introducing 60 fifth-semester cybersecurity students to emerging security concepts.',
       icon: Presentation,
-      color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/30',
-    },
-    {
-      title: 'Law Enforcement Cyber Bootcamps',
-      date: 'February 10 - 15, 2027',
-      type: 'Training Sessions',
-      desc: 'CoE-backed specialized workshops for intelligence officers, showcasing logical drives retrieval and chain-of-custody protocols.',
-      icon: Users,
-      color: 'text-orange-400 bg-orange-400/10 border-orange-400/30',
-    },
-    {
-      title: 'Decentralized Quantum Cryptography Webinar',
-      date: 'March 05, 2027',
-      type: 'Webinrs',
-      desc: 'Academic webinar exploring mathematical limits of post-quantum cryptography algorithms and their impacts on network routers.',
-      icon: Video,
-      color: 'text-rose-400 bg-rose-400/10 border-rose-400/30',
+      color: 'text-blue-400 bg-blue-400/10 border-blue-400/30',
     },
   ];
 

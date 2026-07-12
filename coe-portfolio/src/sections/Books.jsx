@@ -120,7 +120,8 @@ const Books = () => {
           {/* Right Column: 3D Interactive Flipbook */}
           <div className="lg:col-span-7 flex justify-center items-center books-section">
             <div className="books-container">
-              <div className="cover">
+              <div className="book-scale-wrapper">
+                <div className="cover">
                 <div className="book">
                   {/* Page 1 (Jacket/Background Left Page) */}
                   <div
@@ -221,6 +222,7 @@ const Books = () => {
               </div>
             </div>
           </div>
+        </div>
 
         </div>
 

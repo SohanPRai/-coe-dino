@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldAlert, Github, Linkedin, Twitter, ArrowUp } from 'lucide-react';
+import { ShieldAlert, Github, Linkedin, Youtube, Instagram, ArrowUp } from 'lucide-react';
 import MagneticButton from './MagneticButton';
 
 const Footer = () => {
@@ -35,7 +35,7 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-12 border-b border-cyber-cyan/10">
-          
+
           {/* Column 1: Identity & Motto */}
           <div className="lg:col-span-4 space-y-6">
             <div className="flex items-center space-x-2.5">
@@ -59,22 +59,36 @@ const Footer = () => {
             {/* Social credentials */}
             <div className="flex items-center space-x-3.5">
               <a
-                href="#"
-                className="interactive p-2.5 rounded-lg bg-black/5 border border-black/10 hover:border-cyber-cyan/40 hover:text-cyber-cyan hover:bg-cyber-cyan/10 transition-all duration-300"
+                href="https://github.com/COE-DFI-CS-SCEM/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="interactive p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-cyber-cyan/40 hover:text-cyber-cyan hover:bg-cyber-cyan/10 transition-all duration-300"
               >
                 <Github className="w-4.5 h-4.5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/coe-digital-forensics-intelligence-and-cyber-security-sahyadri/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="interactive p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-cyber-cyan/40 hover:text-cyber-cyan hover:bg-cyber-cyan/10 transition-all duration-300"
               >
                 <Linkedin className="w-4.5 h-4.5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/coecybersecurity_sahyadri/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="interactive p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-cyber-cyan/40 hover:text-cyber-cyan hover:bg-cyber-cyan/10 transition-all duration-300"
               >
-                <Twitter className="w-4.5 h-4.5" />
+                <Instagram className="w-4.5 h-4.5" />
+              </a>
+              <a
+                href="https://www.youtube.com/@coedigitalforensicintellig7751"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="interactive p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-cyber-cyan/40 hover:text-cyber-cyan hover:bg-cyber-cyan/10 transition-all duration-300"
+              >
+                <Youtube className="w-4.5 h-4.5" />
               </a>
             </div>
           </div>
@@ -137,21 +151,9 @@ const Footer = () => {
             &copy; {currentYear} DFICS CoE. All rights reserved.
           </div>
           <div>
-            Design &amp; Development:{' '}
-            <a
-              href="https://github.com/Sweekk"
-              target="_blank"
-              rel="noreferrer"
-              className="interactive text-cyber-cyan hover:underline"
-            >
-              Sweekar Shetty
-            </a>
-          </div>
-          <div>
             Sahyadri College of Engineering &amp; Management
           </div>
         </div>
-
       </div>
     </footer>
   );
