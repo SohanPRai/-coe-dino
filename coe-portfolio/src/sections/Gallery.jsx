@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import { Shield, Radio, Key, Users, Cpu, FileWarning } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -7,57 +6,26 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Gallery = () => {
   const containerRef = useRef(null);
+  const [showAll, setShowAll] = useState(false);
 
-  const galleryItems = [
-    {
-      title: 'Active Cyber Drill Simulation',
-      tag: 'Defensive Range',
-      height: 'h-72',
-      icon: Shield,
-      color: 'from-cyan-500/10 to-blue-500/20',
-      terminal: ['root@aegis:~# iptables -A INPUT -j DROP', 'Warning: DDoS attack source contained.'],
-    },
-    {
-      title: 'Reverse Engineering Lab Forum',
-      tag: 'Hardware Forensics',
-      height: 'h-96',
-      icon: Key,
-      color: 'from-purple-500/10 to-pink-500/20',
-      terminal: ['root@jtag:~# binwalk -e firmware.bin', 'Extracting squashfs filesystem...', 'File system: OK'],
-    },
-    {
-      title: 'Incident Telemetry Room',
-      tag: 'Security Operations',
-      height: 'h-80',
-      icon: Radio,
-      color: 'from-blue-500/10 to-cyan-500/20',
-      terminal: ['root@soc:~# snort -v -c rules.conf', 'Telemetry stream operational', 'Alerts: 0 active'],
-    },
-    {
-      title: 'National Security Hackathons',
-      tag: 'Offensive CTF',
-      height: 'h-96',
-      icon: Users,
-      color: 'from-emerald-500/10 to-teal-500/20',
-      terminal: ['root@ctf:~# ./exploit --host 10.0.8.2', 'Buffer overflow sent...', 'Flag captured!'],
-    },
-    {
-      title: 'IoT Auditor Clustered Gateway',
-      tag: 'Firmware Audits',
-      height: 'h-72',
-      icon: Cpu,
-      color: 'from-orange-500/10 to-red-500/20',
-      terminal: ['root@iot:~# nmap -sV -p 80,443 10.0.1.1', 'Open ports: 80 (HTTP)', 'Vulnerability: Shellshock'],
-    },
-    {
-      title: 'Malware Isolation Sandboxing',
-      tag: 'Binary Sandbox',
-      height: 'h-80',
-      icon: FileWarning,
-      color: 'from-rose-500/10 to-red-500/20',
-      terminal: ['root@cuckoo:~# start_vm --sandbox win10', 'Executing ransomware payload...', 'Analyzing keys...'],
-    },
+  // Eager load all webp files dynamically using Vite glob
+  const images = import.meta.glob('../gallery-images/*.webp', { eager: true });
+  const imageList = Object.keys(images)
+    .sort()
+    .map((key) => images[key].default);
+
+  const tags = [
+    'Cyber Drill',
+    'Incident Triage',
+    'Hardware Audits',
+    'Digital Forensics',
+    'Malware Analysis',
+    'Security Operations',
+    'Offensive CTF',
+    'Research Colloquium'
   ];
+
+  const visibleImages = showAll ? imageList : imageList.slice(0, 6);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -83,16 +51,16 @@ const Gallery = () => {
           item,
           { 
             opacity: 0, 
-            clipPath: 'inset(100% 0 0 0)' 
+            y: 20
           },
           {
             opacity: 1,
-            clipPath: 'inset(0% 0 0 0)',
-            duration: 1,
-            ease: 'power3.inOut',
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: item,
-              start: 'top 90%',
+              start: 'top 95%',
             },
           }
         );
@@ -100,7 +68,12 @@ const Gallery = () => {
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [showAll]);
+
+  // Refresh ScrollTrigger when layout size changes
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, [showAll]);
 
   return (
     <section
@@ -119,65 +92,63 @@ const Gallery = () => {
             Centre Action <span className="text-cyber-cyan text-glow">Gallery</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-purple mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto text-gray-400 font-light text-sm sm:text-base leading-relaxed">
-            A futuristic record of training workshops, active penetration tests, forensic captures, and incident simulations.
+          <p className="max-w-2xl mx-auto text-gray-500 font-light text-sm sm:text-base leading-relaxed">
+            A futuristic visual record of our training workshops, active investigations, forensic research labs, and cybersecurity events.
           </p>
         </div>
 
         {/* Pinterest Masonry Grid */}
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {galleryItems.map((item, idx) => {
-            const IconComponent = item.icon;
+          {visibleImages.map((imgUrl, idx) => {
+            const tag = tags[idx % tags.length];
             return (
               <div
                 key={idx}
-                className="gallery-grid-item break-inside-avoid glass-panel rounded-2xl border border-white/5 hover:border-cyber-cyan/30 hover:shadow-neon transition-all duration-300 relative overflow-hidden group"
+                className="gallery-grid-item break-inside-avoid glass-panel rounded-none border border-black/10 hover:border-cyber-cyan/40 hover:shadow-neon transition-all duration-300 relative overflow-hidden group mb-6"
               >
-                {/* Holographic background with custom heights */}
-                <div className={`w-full ${item.height} bg-gradient-to-br ${item.color} p-6 flex flex-col justify-between transition-all duration-300 relative`}>
-                  
-                  {/* Glowing mask grid */}
-                  <div className="absolute inset-0 cyber-grid opacity-10" />
+                {/* Image Container */}
+                <div className="relative overflow-hidden">
+                  <img
+                    src={imgUrl}
+                    alt={`CoE Activity ${idx + 1}`}
+                    loading="lazy"
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {/* Grid overlay mask */}
+                  <div className="absolute inset-0 cyber-grid opacity-[0.03] pointer-events-none" />
+                </div>
 
-                  {/* Header info */}
-                  <div className="flex items-center justify-between z-10">
-                    <span className="font-mono text-[9px] font-bold text-cyber-cyan bg-cyber-cyan/10 border border-cyber-cyan/20 px-2 py-0.5 rounded">
-                      {item.tag}
+                {/* Info Overlay */}
+                <div className="p-4 bg-white border-t border-black/5 text-left flex justify-between items-center">
+                  <div>
+                    <span className="font-mono text-[9px] font-bold text-cyber-cyan bg-cyber-cyan/10 border border-cyber-cyan/20 px-2 py-0.5 rounded uppercase">
+                      {tag}
                     </span>
-                    <IconComponent className="w-4.5 h-4.5 text-gray-400 group-hover:text-cyber-cyan transition-colors" />
-                  </div>
-
-                  {/* Code console inside card */}
-                  <div className="bg-cyber-bg/85 border border-white/5 rounded-lg p-3.5 font-mono text-[8px] sm:text-[9px] text-gray-400 z-10 w-full select-none overflow-hidden group-hover:border-cyber-cyan/20 transition-colors">
-                    {item.terminal.map((line, lIdx) => (
-                      <div key={lIdx} className="truncate">
-                        {line.startsWith('root@') ? (
-                          <span>
-                            <span className="text-cyber-purple">root@dfics</span>
-                            <span className="text-gray-300">:~#</span>{' '}
-                            {line.split(':~#')[1]}
-                          </span>
-                        ) : (
-                          <span className="text-cyber-cyan">{line}</span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Footer details */}
-                  <div className="z-10 text-left">
-                    <h3 className="text-sm font-space font-bold uppercase tracking-wider text-white group-hover:text-cyber-cyan transition-colors duration-300">
-                      {item.title}
+                    <h3 className="text-xs font-space font-bold uppercase tracking-wider text-gray-800 mt-2">
+                      CoE Activity #{idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
                     </h3>
                   </div>
-
-                  {/* Zoom overlay highlight effect */}
-                  <div className="absolute inset-0 bg-cyber-bg/20 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                  <div className="text-[10px] font-mono text-gray-400">
+                    [LOG_SECURE]
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
+
+        {/* Show More / Show Less Button */}
+        {imageList.length > 6 && (
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="interactive inline-flex items-center space-x-2 text-xs font-mono font-bold tracking-wider text-cyber-cyan border-2 border-black bg-white rounded-lg px-6 py-3 hover:bg-cyber-cyan hover:text-white hover:shadow-neon transition-all duration-300"
+            >
+              <span>{showAll ? 'SHOW LESS LOGS' : 'LOAD MORE ACTIVITIES'}</span>
+              <span>{showAll ? '↑' : '↓'}</span>
+            </button>
+          </div>
+        )}
 
       </div>
     </section>

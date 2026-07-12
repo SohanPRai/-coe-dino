@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,400,600|Tulpen+One&display=swap');
+
+.books-section {
+  --baseline: 12px;
+  --page-bg: #F9F9FB;
+  --dark-text: #1E1B4B;
+  --book-title: 'Tulpen One', sans-serif;
+  --title: 'Cormorant Garamond', serif;
+  --body: 'Cormorant Garamond', serif;
+  --base-size: calc(var(--baseline) * 1.25);
+}
+
+.books-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.cover {
+  width: calc(var(--baseline) * 60);
+  height: calc(var(--baseline) * 42.6);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: var(--page-bg);
+  transition: transform 0.5s ease;
+}
+
+.cover:hover {
+  transform: translateY(-4px);
+}
+
+.book {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  perspective: 1200px;
+}
+
+.book__page {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: grid;
+  transform: rotateY(0deg);
+  transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform-origin: 0% 0%;
+  background-color: var(--page-bg);
+  background-image: linear-gradient(90deg, rgba(227,227,227,1) 0%, rgba(247,247,247,0) 18%);
+}
+
+.book__page:nth-of-type(1) {
+  background-image: linear-gradient(-90deg, rgba(227,227,227,1) 0%, rgba(247,247,247,0) 18%);
+}
+
+.book__page--1 {
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.book__page--1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book__page--2 {
+  position: absolute;
+  right: 0;
+  pointer-events: auto;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  background-color: var(--page-bg);
+  background-image: linear-gradient(90deg, rgba(227,227,227,1) 0%, rgba(247,247,247,0) 18%);
+  z-index: 20;
+}
+
+.book__page--2.turned {
+  transform: rotateY(-180deg);
+}
+
+.book__page--4 {
+  cursor: pointer;
+  padding: 0 calc(var(--baseline) * 2);
+}
+
+.book__page-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(0deg) translateZ(1px);
+  backface-visibility: hidden;
+  background-color: var(--page-bg);
+}
+
+.book__page-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0 calc(var(--baseline) * 1.5);
+  transform: rotateY(180deg) translateZ(1px);
+  backface-visibility: hidden;
+  background-color: var(--page-bg);
+  background-image: linear-gradient(-90deg, rgba(227,227,227,1) 0%, rgba(247,247,247,0) 18%);
+}
+
+.book__page .page__content {
+  padding: calc(var(--baseline) * 1.5);
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Center alignment for the title/cover page */
+.book__page-front .page__content {
+  justify-content: center;
+  text-align: center;
+}
+
+/* Left alignment for table of contents and synopsis */
+.book__page-back .page__content,
+.book__page--4 .page__content {
+  justify-content: flex-start;
+  align-items: stretch;
+  text-align: left;
+  padding: calc(var(--baseline) * 2.5) calc(var(--baseline) * 2);
+}
+
+.book__page .page__content-book-title {
+  font-family: var(--title);
+  font-size: calc(var(--base-size) * 1.35);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--dark-text);
+  margin-top: calc(var(--baseline) * 2);
+  margin-bottom: calc(var(--baseline) * 1);
+  line-height: 1.25;
+}
+
+.book__page .page__content-author {
+  font-family: var(--title);
+  font-size: calc(var(--base-size) * 0.9);
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--dark-text);
+  border-top: 1px solid var(--dark-text);
+  border-bottom: 1px solid var(--dark-text);
+  display: inline-block;
+  padding: calc(var(--baseline) / 3) calc(var(--baseline) / 5);
+  margin-bottom: calc(var(--baseline) * 1.5);
+}
+
+.book__page .page__content-credits {
+  font-family: var(--title);
+  text-transform: uppercase;
+  font-size: calc(var(--base-size) * 0.65);
+  margin-bottom: calc(var(--baseline) * 1);
+  letter-spacing: 0.5px;
+  color: #4b5563;
+}
+
+.book__page .page__content-credits span {
+  display: block;
+  font-size: calc(var(--base-size) * 0.95);
+  letter-spacing: 0;
+  font-weight: 600;
+  color: var(--dark-text);
+}
+
+.book__page .page__content-copyright {
+  position: absolute;
+  width: calc(100% - (var(--baseline) * 2));
+  bottom: calc(var(--baseline) * 1.5);
+  font-family: var(--title);
+  font-size: calc(var(--base-size) * 0.65);
+  text-transform: uppercase;
+  color: #4b5563;
+}
+
+.book__page .page__content-title {
+  font-family: var(--title);
+  font-size: calc(var(--base-size) * 1.05);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0;
+  margin-bottom: calc(var(--baseline) * 1.5);
+  color: var(--dark-text);
+  border-bottom: 2px solid var(--dark-text);
+  padding-bottom: 4px;
+  width: 100%;
+}
+
+.book__page .page__content-table {
+  width: 100%;
+  margin-top: calc(var(--baseline) * 0.5);
+  border-collapse: collapse;
+}
+
+.book__page .page__content-table td {
+  font-family: var(--title);
+  font-size: calc(var(--base-size) * 0.72);
+  padding: calc(var(--baseline) * 0.4) 0;
+  text-transform: uppercase;
+  color: var(--dark-text);
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.book__page .page__content-table tr:last-child td {
+  border-bottom: none;
+}
+
+.book__page .page__content-blockquote {
+  margin-top: calc(var(--baseline) * 0.5);
+  margin-bottom: calc(var(--baseline) * 1);
+}
+
+.book__page .page__content-blockquote-text {
+  font-family: var(--title);
+  font-size: calc(var(--base-size) * 0.72);
+  font-style: normal;
+  text-align: justify;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  color: var(--dark-text);
+}
+
+.book__page .page__content-blockquote-reference {
+  font-family: var(--title);
+  font-size: calc(var(--base-size) * 0.72);
+  margin-top: calc(var(--baseline) * 0.5);
+  display: block;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--dark-text);
+}
+
+.book__page .page__content-text {
+  font-family: var(--title);
+  font-size: calc(var(--base-size) * 0.65);
+  text-align: justify;
+  text-indent: var(--baseline);
+}
+
+.book__page .page__number {
+  position: absolute;
+  bottom: calc(var(--baseline) * 1.5);
+  left: 0;
+  width: 100%;
+  font-family: var(--title);
+  font-size: calc(var(--base-size) * 0.7);
+  text-align: center;
+  color: #9ca3af;
+}

@@ -14,6 +14,7 @@ const Footer = () => {
     { name: 'About CoE', href: '#about' },
     { name: 'Domains', href: '#domains' },
     { name: 'Research Area', href: '#research' },
+    { name: 'Books', href: '#books' },
   ];
 
   const exploreLinks = [

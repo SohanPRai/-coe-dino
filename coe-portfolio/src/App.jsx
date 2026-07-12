@@ -9,6 +9,7 @@ import Hero from './sections/Hero';
 import About from './sections/About';
 import Domains from './sections/Domains';
 import Research from './sections/Research';
+import Books from './sections/Books';
 import Projects from './sections/Projects';
 import Events from './sections/Events';
 import Team from './sections/Team';
@@ -90,6 +91,7 @@ function App() {
         <About />
         <Domains />
         <Research />
+        <Books />
         <Projects />
         <Events />
         <Team />
