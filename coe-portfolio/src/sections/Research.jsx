@@ -57,15 +57,75 @@ const ResearchCard = ({ icon: Icon, tag, title, desc }) => (
   </figure>
 );
 
-/* ── Section ─────────────────────────────────────────── */
 const Research = () => {
   const containerRef = useRef(null);
 
+  const patents = [
+    {
+      title: 'An Improved Cyber Security System With Digital Watermarking Using Combined Transformation Approach',
+      year: '2021',
+      number: '2021101400',
+      type: 'International',
+      status: 'Granted'
+    },
+    {
+      title: 'Enhanced Detection Of Attacks OnNetwork Based On Pattern Recognitions With Decision Stump',
+      year: '2021',
+      number: '202141010139',
+      type: 'Indian Patent',
+      status: 'Published'
+    }
+  ];
+
   const publications = [
-    { title: 'IoT Firmware Exploit Mapping',   desc: 'Analyzing vulnerabilities in smart city architectures and consumer gateways by decompiling binary OS kernels and hardware-level instruction flows.',         icon: Cpu,      tag: 'HW-SECURITY' },
-    { title: 'Quantum-Safe Network Protocols', desc: 'Developing lattice-based cryptography implementations to shield standard TLS packet handshakes from future quantum decryption attacks.',                 icon: Binary,   tag: 'CRYPTOGRAPHY' },
-    { title: 'Neural Deepfake Detection',      desc: 'Using spatial and temporal convolutional networks to verify video frame integrity and track micro-expression inconsistencies in real time.',              icon: Eye,      tag: 'DIGITAL-INTEL' },
-    { title: 'Automated RAM Forensic Parsing', desc: 'Creating open parsing drivers for volatile memory analysis, enabling real-time detection of rootkits and API-hooking scripts.',                          icon: BookOpen, tag: 'FORENSICS' },
+    {
+      id: 'DOI: IDCIoT59759.2024.10467993',
+      indexing: 'SCOPUS',
+      year: '2024',
+      title: 'Advancements in User Security: Enhancing Usability with Graphical Password Authentication',
+      venue: 'IEEE 2024 2nd International Conference on Intelligent Data Communication Technologies and Internet of Things (IDCIoT)',
+      authors: ['Harisha', 'Sandhya Ramesh Naik', 'Shettigar Sarvani Vasudeva', 'K Shrilakshmi', 'Vaishnavi Kothwal']
+    },
+    {
+      id: 'ISBN: 9781003369479',
+      indexing: 'SCOPUS',
+      year: 'Chapter 2023',
+      title: 'Open Standard Authorization Protocol: OAuth 2.0 Defenses and Working Using Digital Signatures',
+      venue: 'Book: Advancements in Cybercrime Investigation and Digital Forensics: Apple Academic press and CRC Press',
+      authors: ['Harisha', 'L Salian', 'A Yermal', 'CGA Shastry']
+    },
+    {
+      id: 'DOI: 10.3233/IDT-210132',
+      indexing: 'SCOPUS',
+      year: 'Preprint: 1-8',
+      title: 'A performance evaluation of convolution neural networks for kinship discernment: An application in digital forensics.',
+      venue: 'Intelligent Decision Technologies',
+      authors: ['Harisha', 'B. Krishna Prasad', 'Keerthana Rajeev', 'Maithri', 'Nischal']
+    },
+    {
+      id: 'DOI: 10.1504/IJIDSS.2021.115226',
+      indexing: 'DBLP',
+      year: '2021',
+      title: 'Deep learning-based approach for malware classification.',
+      venue: 'Journal of Intelligent Defence Support Systems 6.2 (2021): 61-80. [DBLP]',
+      authors: ['Airbail Harisha', 'et al']
+    },
+    {
+      id: '10.1007/s40747-022-00771-0',
+      indexing: 'SCIE, SCOPUS',
+      year: '2022',
+      title: "Person identification from arm's hair patterns using CT-twofold Siamese network in forensic psychiatric hospitals.",
+      venue: 'Complex Intell. Syst. (2022).',
+      authors: ['Rohan Salins', 'Ashwin', 'G Ananth Prabhu']
+    },
+    {
+      id: '10.4108/eai.23-6-2021.170244',
+      indexing: 'DBLP',
+      year: '2021',
+      title: 'Advanced Mechanism to Achieve QoS and Profit Maximization of Brokers in Cloud Computing.',
+      venue: 'EAI Endorsed Transactions on Cloud Systems, 7(20). [DBLP]',
+      authors: ['Sathish Akanksha', 'et al']
+    }
   ];
 
   useEffect(() => {
@@ -107,45 +167,97 @@ const Research = () => {
           </p>
         </div>
 
-        {/* Research Cards Grid */}
-        <div className="research-grid grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        {/* Patents Sub-Section */}
+        <div className="mb-20 max-w-6xl mx-auto">
+          <h3 className="font-mono font-bold uppercase tracking-wider text-lg mb-6 text-gray-900 text-left flex items-center gap-2 border-b border-black/10 pb-2">
+            <span>□</span> Our Patents <span className="text-cyber-cyan text-xs">GRANTED &amp; PUBLISHED</span>
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {patents.map((pat, idx) => (
+              <div 
+                key={idx} 
+                className="research-card dino-panel-light dino-panel-light-hover p-6 rounded-none relative overflow-hidden group text-left"
+              >
+                {/* Index badge */}
+                <div className="absolute right-6 top-2 text-7xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
+                  {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                </div>
+
+                <div className="absolute top-0 left-0 w-[3px] h-full bg-cyber-cyan" />
+                
+                <h4 className="text-base font-space font-bold uppercase tracking-wider text-gray-900 mb-4 pr-10 leading-snug group-hover:text-cyber-cyan transition-colors">
+                  {pat.title}
+                </h4>
+
+                <div className="space-y-2 text-xs font-mono text-gray-600">
+                  <div className="flex justify-between border-b border-black/5 pb-1">
+                    <span className="text-gray-400">Year:</span>
+                    <span className="font-semibold text-gray-950">{pat.year}</span>
+                  </div>
+                  <div className="flex justify-between border-b border-black/5 pb-1">
+                    <span className="text-gray-400">Patent Number &amp; Application:</span>
+                    <span className="font-semibold text-gray-950">{pat.number}</span>
+                  </div>
+                  <div className="flex justify-between border-b border-black/5 pb-1">
+                    <span className="text-gray-400">Type:</span>
+                    <span className="font-semibold text-gray-950">{pat.type}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Status:</span>
+                    <span className={`font-bold uppercase ${pat.status === 'Granted' ? 'text-green-600' : 'text-indigo-600'}`}>{pat.status}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Research List Header */}
+        <div className="mb-6 max-w-6xl mx-auto">
+          <h3 className="font-mono font-bold uppercase tracking-wider text-lg text-gray-900 text-left flex items-center gap-2 border-b border-black/10 pb-2">
+            <span>□</span> Research Publications <span className="text-cyber-cyan text-xs">JOURNAL &amp; CONFERENCE PROCEEDINGS</span>
+          </h3>
+        </div>
+
+        {/* Research List */}
+        <div className="research-grid flex flex-col space-y-6 mb-20 max-w-6xl mx-auto">
           {publications.map((pub, idx) => {
-            const Icon = pub.icon;
             return (
               <div
                 key={idx}
-                className="research-card relative group flex flex-col justify-between p-8 rounded-none dino-panel-light dino-panel-light-hover"
+                className="research-card relative group flex flex-col md:flex-row items-start gap-4 md:gap-8 p-6 rounded-none dino-panel-light dino-panel-light-hover transition-all duration-300"
               >
-                <div>
-                  {/* Tag Header */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-[10px] tracking-widest font-bold uppercase px-2.5 py-1 border bg-cyber-cyan/10 border-cyber-cyan/20 text-cyber-cyan">
-                      {pub.tag}
-                    </span>
+                {/* Left Metadata Column */}
+                <div className="w-full md:w-60 shrink-0 flex flex-row md:flex-col justify-between md:justify-start items-center md:items-start text-left gap-1 font-mono text-xs border-b md:border-b-0 md:border-r border-black/10 pb-3 md:pb-0 md:pr-4">
+                  <div className="flex flex-col text-left space-y-1">
+                    <span className="text-gray-400 font-semibold text-[10px] break-all">({pub.id})</span>
+                    <span className="text-cyber-cyan font-bold">[{pub.indexing}]</span>
                   </div>
-
-                  {/* Title + Minimalist Icon */}
-                  <h3 className="font-mono font-bold uppercase tracking-wider text-base mb-3 flex items-center justify-between text-gray-900" style={{ letterSpacing: '0.08em' }}>
-                    <span>□ {pub.title}</span>
-                    <Icon className="w-4 h-4 text-gray-400 group-hover:text-cyber-cyan group-hover:rotate-6 transition-all shrink-0" />
-                  </h3>
-
-                  {/* Description */}
-                  <p className="font-mono text-xs leading-relaxed mb-6 text-gray-600">
-                    {pub.desc}
-                  </p>
+                  <span className="text-gray-500 font-light mt-1 text-[11px]">{pub.year}</span>
                 </div>
 
-                {/* CTA */}
-                <a href="#contact"
-                   className="interactive flex items-center gap-2 font-mono text-xs font-bold tracking-widest uppercase mt-auto w-fit text-cyber-cyan">
-                  <span>LEARN MORE</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </a>
-
-                {/* Corner accent */}
-                <span className="absolute top-0 right-0 w-0 h-0
-                  border-t-[28px] border-r-[28px] border-t-cyber-cyan border-r-cyber-cyan border-l-transparent border-b-transparent" />
+                {/* Right Info Column */}
+                <div className="flex-1 text-left space-y-2">
+                  <h3 className="font-space font-bold text-gray-900 text-sm sm:text-base leading-snug group-hover:text-cyber-cyan transition-colors uppercase tracking-wider">
+                    {pub.title}
+                  </h3>
+                  <p className="text-gray-600 text-xs font-mono font-light leading-relaxed">
+                    {pub.venue}
+                  </p>
+                  
+                  {/* Author pills */}
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {pub.authors.map((author, aIdx) => (
+                      <span
+                        key={aIdx}
+                        className="px-2.5 py-0.5 bg-indigo-600 text-white font-space font-semibold text-[9px] rounded-full shadow-[2px_2px_0_rgba(0,0,0,1)] border border-black hover:translate-y-[-1px] transition-transform"
+                      >
+                        {author}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             );
           })}

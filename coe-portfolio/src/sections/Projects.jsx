@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ShieldAlert, Cpu, Terminal, Users, User, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -10,29 +10,23 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Decentralized Intrusion Detection System',
-      tech: ['React', 'Node.js', 'Web3', 'Snort'],
-      mentor: 'Dr. Ananth Kumar (HoD, Cyber Security)',
-      students: ['Sweekar S.', 'Deepak R.', 'Nithin K.'],
-      type: 'ids',
-      desc: 'An automated telemetry analyzer mapping local network packages onto a decentralized ledger to detect cross-domain coordinated DDoS exploits.',
+      funding: '50 Lakhs',
+      title: 'Centre of Excellence in Digital Forensics Intelligence',
+      agency: 'Vision Group on Science and Technology, Govt. of Karnataka',
+      status: 'Phase 1 Completed → Ongoing',
+      duration: '2019 - 2020',
+      team: ['Dr. Ananth Prabhu G', 'Mr. Harisha'],
+      type: 'ids'
     },
     {
-      title: 'Volatile RAM Forensic Scanner',
-      tech: ['Python', 'C++', 'Volatility 3', 'Qt'],
-      mentor: 'Prof. Ramesh Rao (Lead forensic researcher)',
-      students: ['Megha S.', 'Rohith J.'],
-      type: 'forensics',
-      desc: 'Extracting and parsing system registers, kernel tables, and active process queues from memory dumps under high-stealth malware conditions.',
-    },
-    {
-      title: 'Automated IoT Firmware Penetration Tool',
-      tech: ['Python', 'Binwalk', 'Docker', 'GDB'],
-      mentor: 'Dr. Sandeep Hedge (IoT Lab advisor)',
-      students: ['Karthik P.', 'Ashwin V.', 'Varun G.'],
-      type: 'scanner',
-      desc: 'Simulating fuzzing tests and static decompilation scripts on smart appliance binaries to discover root exploits and hardcoded keys.',
-    },
+      funding: '2.6 Lakhs',
+      title: 'Comprehensive Survey on Deepfake Detection',
+      agency: 'CYSECK, Govt. of Karnataka',
+      status: 'UC Submitted',
+      duration: '2022 - 2023',
+      team: ['Dr. Ananth Prabhu G', 'Mr. Harisha'],
+      type: 'forensics'
+    }
   ];
 
   useEffect(() => {
@@ -197,17 +191,12 @@ const Projects = () => {
         </div>
 
         {/* Projects Modern Grid */}
-        <div className="projects-grid grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="projects-grid grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {projects.map((proj, idx) => {
-            const offsets = [
-              'lg:translate-y-0',
-              'lg:translate-y-4',
-              'lg:-translate-y-2'
-            ];
             return (
               <div
                 key={idx}
-                className={`project-card dino-panel-light dino-panel-light-hover rounded-none relative overflow-hidden group flex flex-col justify-between h-full ${offsets[idx] || ''}`}
+                className="project-card dino-panel-light dino-panel-light-hover rounded-none relative overflow-hidden group flex flex-col justify-between h-full"
               >
                 {/* Faded Background Index */}
                 <div className="absolute right-6 top-48 text-8xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
@@ -220,58 +209,50 @@ const Projects = () => {
 
                   {/* Core description details */}
                   <div className="p-6">
-                    {/* Technology Tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {proj.tech.map((t, tIdx) => (
+                    {/* Project Title with Funding */}
+                    <h3 className="text-base sm:text-lg font-space font-bold text-gray-900 mb-2 group-hover:text-cyber-cyan transition-colors leading-tight">
+                      <span className="text-indigo-600 font-extrabold">{proj.funding}</span> <span className="text-gray-400 font-normal">|</span> {proj.title}
+                    </h3>
+
+                    {/* Agency */}
+                    <p className="text-gray-600 font-sans text-xs mb-4">
+                      {proj.agency}
+                    </p>
+
+                    {/* Status & Duration */}
+                    <div className="flex justify-between items-center text-xs font-mono mb-4 text-cyber-purple font-semibold">
+                      <span className="text-indigo-600 font-bold">{proj.status}</span>
+                      <span className="text-gray-400 font-light">{proj.duration}</span>
+                    </div>
+
+                    {/* Team Pills */}
+                    <div className="border-t border-gray-200 pt-4 flex flex-wrap gap-2">
+                      {proj.team.map((member, mIdx) => (
                         <span
-                          key={tIdx}
-                          className="text-[8px] sm:text-[9px] font-mono bg-cyber-navy border border-gray-200 px-2 py-0.5 rounded text-gray-700"
+                          key={mIdx}
+                          className="px-3 py-1 bg-indigo-600 text-white font-space font-semibold text-[10px] rounded-full shadow-[2px_2px_0_rgba(0,0,0,1)] border border-black hover:translate-y-[-1px] transition-transform"
                         >
-                          {t}
+                          {member}
                         </span>
                       ))}
                     </div>
-
-                    {/* Project Title */}
-                    <h3 className="text-base sm:text-lg font-space font-bold uppercase tracking-wider text-gray-900 mb-3 group-hover:text-cyber-cyan transition-colors">
-                      □ {proj.title}
-                    </h3>
-
-                  {/* Summary Text */}
-                  <p className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed mb-6">
-                    {proj.desc}
-                  </p>
-
-                  {/* Mentor & Team credentials */}
-                  <div className="border-t border-gray-200 pt-4 space-y-2">
-                    <div className="flex items-center text-[10px] text-gray-600 font-sans font-light">
-                      <User className="w-3.5 h-3.5 text-cyber-purple mr-2 shrink-0" />
-                      <span className="truncate"><strong>Mentor:</strong> {proj.mentor}</span>
-                    </div>
-                    <div className="flex items-start text-[10px] text-gray-600 font-sans font-light">
-                      <Users className="w-3.5 h-3.5 text-cyber-cyan mr-2 shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Team:</strong> {proj.students.join(', ')}
-                      </div>
-                    </div>
                   </div>
-
                 </div>
-              </div>
 
-              {/* View Deployment Link */}
-              <div className="p-6 pt-0 mt-auto">
-                <a
-                  href="#contact"
-                  className="interactive flex items-center justify-center space-x-2 text-xs font-mono font-bold tracking-wider text-cyber-cyan border-2 border-black bg-white rounded-lg py-2.5 hover:bg-cyber-cyan hover:text-white hover:shadow-neon transition-all duration-300 w-full"
-                >
-                  <span>REQUEST ACCESS</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
+                {/* View Deployment Link */}
+                <div className="p-6 pt-0 mt-auto">
+                  <a
+                    href="#contact"
+                    className="interactive flex items-center justify-center space-x-2 text-xs font-mono font-bold tracking-wider text-cyber-cyan border-2 border-black bg-white rounded-lg py-2.5 hover:bg-cyber-cyan hover:text-white hover:shadow-neon transition-all duration-300 w-full"
+                  >
+                    <span>REQUEST ACCESS</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
 
-            </div>
-          );})}
+              </div>
+            );
+          })}
         </div>
 
       </div>

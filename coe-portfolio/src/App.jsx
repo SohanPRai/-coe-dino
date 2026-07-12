@@ -8,9 +8,7 @@ import HexagonPattern from './components/HexagonPattern';
 import Hero from './sections/Hero';
 import About from './sections/About';
 import Domains from './sections/Domains';
-import WhyDFICS from './sections/WhyDFICS';
 import Research from './sections/Research';
-import Labs from './sections/Labs';
 import Projects from './sections/Projects';
 import Events from './sections/Events';
 import Team from './sections/Team';
@@ -91,9 +89,7 @@ function App() {
         <Hero />
         <About />
         <Domains />
-        <WhyDFICS />
         <Research />
-        <Labs />
         <Projects />
         <Events />
         <Team />

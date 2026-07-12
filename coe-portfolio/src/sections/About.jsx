@@ -10,24 +10,24 @@ const About = () => {
 
   const milestones = [
     {
-      year: '2021',
-      title: 'Inception & Vision',
-      desc: 'DFICS was conceptualized at Sahyadri College to bridge the critical gap between academic knowledge and operational cyber warfare capabilities.',
+      year: '01',
+      title: 'Educational Support',
+      desc: 'To create a collaborative working environment between university, government agencies, and commercial establishments to share information on potential threats, and counter-measures through ongoing research projects.',
     },
     {
-      year: '2022',
-      title: 'State-of-the-Art Labs',
-      desc: 'Established dedicated hardware-software clusters for digital forensic investigations, memory analytics, and incident response simulations.',
+      year: '02',
+      title: 'Govt. Support',
+      desc: 'To support law enforcement agencies in technical matters and help them in the development of cyber laws, whenever required in their investigations. Also, support them in capacity building.',
     },
     {
-      year: '2023',
-      title: 'Industry & Gov Collaborations',
-      desc: 'Formed strategic alliances with leading national security groups, defense startups, and corporate cybersecurity leaders to deliver real-world case analysis.',
+      year: '03',
+      title: 'Research',
+      desc: 'To promote research in the upcoming areas of Digital Forensics and Cybersecurity to provide solutions to cybercrime and cybersecurity-related issues and to publish scientific books, magazines, and compilations.',
     },
     {
-      year: '2024',
-      title: 'COE Recognition',
-      desc: 'Formally recognized as a regional Centre of Excellence, taking on government-backed training initiatives for law enforcement agency personnel.',
+      year: '04',
+      title: 'Training',
+      desc: 'To conduct training and skill development that can aid in understanding the nature of cybercrime. Conducting seminars, national and international conferences to create awareness among the stakeholders.',
     },
   ];
 
@@ -106,14 +106,14 @@ const About = () => {
             About the <span className="text-cyber-cyan text-glow">Centre of Excellence</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-purple mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto text-gray-600 font-light text-sm sm:text-base leading-relaxed">
-            Sahyadri College's DFICS serves as a premium research hub dedicated to shaping the future of digital safety, forensic computation, and offensive-defensive cybersecurity intelligence.
+          <p className="max-w-2xl mx-auto text-gray-800 font-bold text-xl sm:text-base leading-relaxed ">
+            Established in 2018, the Centre of Excellence in Digital Forensics and Cyber Security aims to address the growing threat of cybercrime. Our state-of-the-art lab is dedicated to providing a platform for students, researchers, and professionals to collaborate and innovate in the field of cyber security.
           </p>
         </div>
 
         {/* Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Left Column - Core Statements (Mission, Vision, Objectives) */}
           <div className="lg:col-span-6 space-y-6 about-cards-container">
             {/* Mission */}
@@ -129,11 +129,22 @@ const About = () => {
                     <span>□</span> OUR MISSION <span className="text-xl">🦖</span>
                   </h3>
                   <p className="font-space font-bold text-cyber-cyan text-sm mb-3">
-                    "We build future cyber defenders."
+                    "Driving cybersecurity excellence through research, training, and innovation."
                   </p>
-                  <p className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed">
-                    To pioneer cutting-edge cyber-forensics research and deploy industry-grade defense strategies, equipping scholars with high-performance operational intelligence.
-                  </p>
+                  <ul className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed space-y-2">
+                    <li className="flex items-start space-x-2">
+                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan mt-1 flex-shrink-0" />
+                      <span>Identify and address the critical challenges in cybersecurity.</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan mt-1 flex-shrink-0" />
+                      <span>Develop quality forensics and cyber solutions to provide training and service to stakeholders.</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan mt-1 flex-shrink-0" />
+                      <span>Transform research results in sustainable technologies and product development.</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -154,13 +165,13 @@ const About = () => {
                     "Securing digital horizons through ethical innovations."
                   </p>
                   <p className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed">
-                    To build a globally recognized, resilient cyber research eco-system fostering ethical innovation, forensic mastery, and high-impact digital intelligence defense.
+                    To deliver cyber security solutions and services to Secure Digital Process and Enterprise.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Objectives */}
+            {/* Facilities */}
             <div className="about-card dino-panel-light dino-panel-light-hover p-6 rounded-none relative overflow-hidden group translate-x-[2%] md:translate-x-[3%]">
               {/* Faded Background Index */}
               <div className="absolute right-6 top-2 text-8xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
@@ -170,23 +181,43 @@ const About = () => {
               <div className="flex items-start space-x-4">
                 <div className="w-full">
                   <h3 className="text-lg font-space font-bold uppercase tracking-wider text-gray-900 mb-2 flex items-center gap-2">
-                    <span>□</span> KEY OBJECTIVES <span className="text-xl">🌵</span>
+                    <span>□</span> FACILITIES <span className="text-xl">🛠️</span>
                   </h3>
                   <p className="font-space font-bold text-cyber-cyan text-sm mb-3">
-                    "Collaborating with elite institutions to solve real exploits."
+                    "State-of-the-art infrastructure for hands-on cybersecurity research."
                   </p>
-                  <ul className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed space-y-2 mt-1">
-                    <li className="flex items-center space-x-2">
-                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan" />
-                      <span>Deliver hands-on offensive &amp; defensive training programs.</span>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-gray-600 text-xs sm:text-sm font-light leading-relaxed">
+                    <li className="flex items-start space-x-1.5">
+                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan mt-1 flex-shrink-0" />
+                      <span>Unified Threat Management System</span>
                     </li>
-                    <li className="flex items-center space-x-2">
-                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan" />
-                      <span>Solve real-world forensic challenges for law enforcement.</span>
+                    <li className="flex items-start space-x-1.5">
+                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan mt-1 flex-shrink-0" />
+                      <span>Computer Unified Programming Unit</span>
                     </li>
-                    <li className="flex items-center space-x-2">
-                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan" />
-                      <span>Collaborate with global industry partners for active workshops.</span>
+                    <li className="flex items-start space-x-1.5">
+                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan mt-1 flex-shrink-0" />
+                      <span>ESP IOT Development Kit</span>
+                    </li>
+                    <li className="flex items-start space-x-1.5">
+                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan mt-1 flex-shrink-0" />
+                      <span>Alpha AWUS036ACH</span>
+                    </li>
+                    <li className="flex items-start space-x-1.5">
+                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan mt-1 flex-shrink-0" />
+                      <span>AtMegha Development Kit &amp; Sensors</span>
+                    </li>
+                    <li className="flex items-start space-x-1.5">
+                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan mt-1 flex-shrink-0" />
+                      <span>PLC</span>
+                    </li>
+                    <li className="flex items-start space-x-1.5">
+                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan mt-1 flex-shrink-0" />
+                      <span>Data Logger</span>
+                    </li>
+                    <li className="flex items-start space-x-1.5">
+                      <ChevronRight className="w-3.5 h-3.5 text-cyber-cyan mt-1 flex-shrink-0" />
+                      <span>HMI for Industrial Data Security</span>
                     </li>
                   </ul>
                 </div>
@@ -194,11 +225,11 @@ const About = () => {
             </div>
           </div>
 
-          {/* Right Column - Milestone Timeline */}
+          {/* Right Column - Key Objectives & Support */}
           <div className="lg:col-span-6">
             <h3 className="text-xl font-space font-bold uppercase tracking-wider text-cyber-light mb-8 inline-flex items-center space-x-2.5">
-              <Calendar className="w-5 h-5 text-cyber-cyan" />
-              <span>Milestones &amp; Journey <span className="text-xl ml-1">🐦</span></span>
+              <Target className="w-5 h-5 text-cyber-cyan" />
+              <span>Key Objectives &amp; Support <span className="text-xl ml-1">🎯</span></span>
             </h3>
 
             {/* Timeline wrapper */}
@@ -207,23 +238,32 @@ const About = () => {
               <div className="absolute left-[15px] top-2 bottom-2 w-[3px] bg-black" />
 
               {milestones.map((m, idx) => (
-                <div key={idx} className="timeline-item relative flex flex-col sm:flex-row sm:items-center text-left">
+                <div key={idx} className="timeline-item relative flex flex-col text-left group">
                   {/* Horizontal connector line */}
-                  <div className="absolute left-[-32px] top-[15px] w-8 h-[3px] bg-black hidden sm:block" />
-                  
-                  {/* Node point (pixel node) */}
-                  <div className="absolute left-[-35px] top-[12px] w-[9px] h-[9px] bg-cyber-cyan border border-black z-10 hidden sm:block" />
+                  <div className="timeline-indicator-line absolute left-[-32px] top-[24px] w-8 h-[3px] bg-black hidden sm:block" />
 
-                  {/* Year badge */}
-                  <div className="flex items-center space-x-4">
-                    <div className="flex-shrink-0 px-3 py-1 font-space font-bold text-xs bg-white border-2 border-black shadow-[2px_2px_0_#2563EB] text-gray-900 rounded-none">
-                      {m.year}
+                  {/* Node point (pixel node) */}
+                  <div className="timeline-node absolute left-[-35px] top-[21px] w-[9px] h-[9px] bg-cyber-cyan border border-black z-10 hidden sm:block" />
+
+                  <div className="timeline-content w-full">
+                    <div className="dino-panel-light dino-panel-light-hover p-5 rounded-none relative overflow-hidden">
+                      {/* Faded Background Index */}
+                      <div className="absolute right-6 top-2 text-7xl font-space font-extrabold select-none pointer-events-none opacity-[0.03] text-black">
+                        {m.year}
+                      </div>
+
+                      {/* Badge & Title */}
+                      <div className="flex items-center space-x-4 mb-3">
+                        <div className="flex-shrink-0 px-3 py-1 font-space font-bold text-xs bg-white border-2 border-black shadow-[2px_2px_0_#2563EB] text-gray-900 rounded-none animate-pulse-slow">
+                          {m.year}
+                        </div>
+                        <h4 className="font-space font-bold text-gray-900 text-base">{m.title}</h4>
+                      </div>
+                      <p className="text-gray-600 text-xs sm:text-sm font-light leading-relaxed">
+                        {m.desc}
+                      </p>
                     </div>
-                    <h4 className="font-space font-bold text-gray-900 text-base">{m.title}</h4>
                   </div>
-                  <p className="text-gray-600 text-xs sm:text-sm font-light mt-2 sm:mt-0 sm:ml-6 leading-relaxed max-w-lg">
-                    {m.desc}
-                  </p>
                 </div>
               ))}
 
@@ -231,7 +271,7 @@ const About = () => {
               <div className="timeline-item relative flex items-center pt-4">
                 <div className="absolute left-[-32px] top-[40px] w-8 h-[3px] bg-black hidden sm:block" />
                 <div className="absolute left-[-35px] top-[37px] w-[9px] h-[9px] bg-cyber-cyan border border-black z-10 hidden sm:block" />
-                
+
                 <div className="dino-panel-light p-5 w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div className="flex items-center space-x-3 text-left">
                     <span className="text-2xl">🏁</span>
@@ -256,7 +296,7 @@ const About = () => {
 
             </div>
           </div>
-          
+
         </div>
       </div>
     </section>
