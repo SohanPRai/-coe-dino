@@ -152,52 +152,46 @@ const Team = () => {
       title: 'Contributers',
       members: [
         {
-          name: 'Contributor 1 Name',
+          name: 'Tanish Poojary',
           role: 'Contributor',
-          desc: 'Description placeholder for Contributor 1.',
           image: null,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/tanish-poojary-bb5aaa335/', github: 'https://github.com/TAKLIA-7' },
           seed: 'contributor-1'
         },
         {
-          name: 'Contributor 2 Name',
+          name: 'Sohan P Rai',
           role: 'Contributor',
-          desc: 'Description placeholder for Contributor 2.',
           image: null,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/sohan-p-rai-290a77327/', github: 'https://github.com/SohanPRai' },
           seed: 'contributor-2'
         },
         {
-          name: 'Contributor 3 Name',
+          name: 'Sweekar Shetty',
           role: 'Contributor',
-          desc: 'Description placeholder for Contributor 3.',
           image: null,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/sweekar-shetty-1a4255335/', github: 'https://github.com/Sweekk' },
           seed: 'contributor-3'
         },
         {
-          name: 'Contributor 4 Name',
+          name: 'Valasapalli Moksha',
           role: 'Contributor',
-          desc: 'Description placeholder for Contributor 4.',
           image: null,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/moksha-valasapalli-95b43a316/', github: 'https://github.com/itsmoksha' },
           seed: 'contributor-4'
         },
         {
-          name: 'Contributor 5 Name',
+          name: 'Rishan Veigas',
           className: "ml-30",
           role: 'Contributor',
-          desc: 'Description placeholder for Contributor 5.',
           image: null,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/rishan-veigas-607984343/', github: 'https://github.com/RishanVeigas' },
           seed: 'contributor-5'
         },
         {
-          name: 'Contributor 6 Name',
+          name: 'Pratham Shettigar',
           role: 'Contributor',
-          desc: 'Description placeholder for Contributor 6.',
           image: null,
-          social: { linkedin: '#', github: '#', twitter: '#', mail: '#' },
+          social: { linkedin: 'https://www.linkedin.com/in/prathamshettigar/', github: 'https://github.com/shettigarpratham6-web' },
           seed: 'contributor-6'
         }
       ]
